@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>BottleCode</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link
+		href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap"
+		rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="../css/animate.css">
+
+	<link rel="stylesheet" href="../css/owl.carousel.min.css">
+	<link rel="stylesheet" href="../css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="../css/magnific-popup.css">
+
+	<link rel="stylesheet" href="../css/flaticon.css">
+	<link rel="stylesheet" href="../css/style.css">
+
+	<!-- Bootstrap CSS -->
+	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+</head>
+<style>
+	.cart-item {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 15px;
+		border-bottom: 1px solid #ccc;
+		padding-bottom: 10px;
+	}
+
+	.cart-item img {
+		width: 50px;
+		height: 50px;
+		object-fit: cover;
+		margin-right: 10px;
+	}
+
+	.cart-item .info {
+		flex: 1;
+	}
+
+	.empty {
+		text-align: center;
+		color: #777;
+	}
+
+	.cart-toggle-btn {
+		position: fixed;
+		top: 20px;
+		right: 20px;
+		background: #222;
+		color: white;
+		border: none;
+		padding: 10px 15px;
+		border-radius: 5px;
+		z-index: 1000;
+		cursor: pointer;
+	}
+
+	#cart-count {
+		background: red;
+		color: white;
+		padding: 2px 6px;
+		border-radius: 10px;
+		font-size: 12px;
+		margin-left: 5px;
+	}
+
+	.cart-drawer {
+		position: fixed;
+		top: 0;
+		right: 0;
+		width: 340px;
+		height: 100%;
+		background: #f8f8f8;
+		box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+		transform: translateX(100%);
+		transition: transform 0.3s ease;
+		display: flex;
+		flex-direction: column;
+		z-index: 999;
+	}
+
+	.cart-drawer.open {
+		transform: translateX(0);
+	}
+
+	.cart-header,
+	.cart-footer {
+		padding: 15px;
+		border-bottom: 1px solid #ddd;
+		background: #fff;
+	}
+
+	.cart-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.close-btn {
+		background: none;
+		border: none;
+		font-size: 24px;
+		cursor: pointer;
+	}
+
+	.cart-body {
+		flex: 1;
+		overflow-y: auto;
+		padding: 15px;
+	}
+
+	.cart-footer {
+		border-top: 1px solid #ddd;
+	}
+
+	.total-row {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 10px;
+	}
+
+	.modal {
+		display: none;
+		position: fixed;
+		z-index: 999;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		overflow: auto;
+		padding-top: 60px;
+	}
+
+	.modal-content {
+		background-color: #fff;
+		border-radius: 5px;
+		width: 600px;
+		max-width: 90%;
+		padding: 20px;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+	}
+
+	.close {
+		position: absolute;
+		right: 15px;
+		top: 10px;
+		font-size: 24px;
+		font-weight: bold;
+		cursor: pointer;
+	}
+
+	.modal-body {
+		display: flex;
+		gap: 20px;
+		align-items: center;
+	}
+
+	.modal-left img {
+		width: 200px;
+		height: auto;
+		border-radius: 5px;
+	}
+
+	.modal-right {
+		flex: 1;
+	}
+
+	#modal-quantity {
+		width: 60px;
+		margin: 10px 0;
+	}
+
+	#add-to-cart-btn {
+		display: inline-block;
+		background-color: #b7472a;
+		/* nuevo color */
+		color: white;
+		border: none;
+		padding: 10px 18px;
+		cursor: pointer;
+		border-radius: 4px;
+		width: 100%;
+		font-weight: bold;
+	}
+
+	#add-to-cart-btn:hover {
+		background-color: #9e3b21;
+		/* un poco más oscuro para el hover */
+	}
+
+	#recent-product {
+		min-height: 250px;
+		/* Puedes ajustar el valor */
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.offcanvas-cart {
+		position: fixed;
+		top: 0;
+		right: -400px;
+		width: 400px;
+		max-width: 90vw;
+		height: 100%;
+		background: #fff;
+		box-shadow: -2px 0 10px rgba(0, 0, 0, 0.15);
+		z-index: 1050;
+		transition: right 0.3s;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.offcanvas-cart.show {
+		right: 0;
+	}
+
+	.offcanvas-cart-header {
+		padding: 16px;
+		border-bottom: 1px solid #eee;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.offcanvas-cart-body {
+		flex: 1;
+		overflow-y: auto;
+		padding: 16px;
+	}
+
+	.offcanvas-cart-footer {
+		padding: 16px;
+		border-top: 1px solid #eee;
+	}
+</style>
+</style>
+
+<body>
+
+	<div class="wrap">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 d-flex align-items-center">
+					<p class="mb-0 phone pl-md-2">
+
+					</p>
+				</div>
+				<div class="col-md-6 d-flex justify-content-md-end">
+					<div class="social-media mr-4">
+
+					</div>
+					<div class="reg">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">Bottle <span>Code</span></a>
+			<div class="order-lg-last btn-group">
+				<a href="#" onclick="return false;" class="btn-cart dropdown-toggle dropdown-toggle-split"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="openCartBtn">
+					<span class="flaticon-shopping-bag"></span>
+					<div class="d-flex justify-content-center align-items-center"><small>3</small></div>
+				</a>
+			</div>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+				aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
+
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a href="index.html" class="nav-link">Inicio</a></li>
+					<li class="nav-item"><a href="about.html" class="nav-link">Acerca</a></li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false">Categorias</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown04">
+							<a class="dropdown-item" href="product.html">Products</a>
+							<a class="dropdown-item" href="product-single.html">Single Product</a>
+							<a class="dropdown-item" href="cart.html">Cart</a>
+							<a class="dropdown-item" href="checkout.html">Checkout</a>
+						</div>
+					</li>
+					<!-- <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li> -->
+					<li class="nav-item"><a href="contact.html" class="nav-link">Contacto</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- END nav -->
+
+	<div class="hero-wrap" style="background-image: url('../images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row no-gutters slider-text align-items-center justify-content-center">
+				<div class="col-md-8 ftco-animate d-flex align-items-end">
+					<div class="text w-100 text-center">
+						<h1 class="mb-4">Good <span>Drink</span> for Good <span>Moments</span>.</h1>
+						<p><a href="#" class="btn btn-primary py-2 px-4">Shop Now</a> <a href="#"
+								class="btn btn-white btn-outline-white py-2 px-4">Read more</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<section class="ftco-intro">
+		<div class="container">
+			<div class="row no-gutters">
+				<div class="col-md-4 d-flex">
+					<div class="intro d-lg-flex w-100 ftco-animate">
+						<div class="icon">
+							<span class="flaticon-support"></span>
+						</div>
+						<div class="text">
+							<h2>Online Support 24/7</h2>
+							<p>A small river named Duden flows by their place and supplies it with the necessary
+								regelialia.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 d-flex">
+					<div class="intro color-1 d-lg-flex w-100 ftco-animate">
+						<div class="icon">
+							<span class="flaticon-cashback"></span>
+						</div>
+						<div class="text">
+							<h2>Money Back Guarantee</h2>
+							<p>A small river named Duden flows by their place and supplies it with the necessary
+								regelialia.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 d-flex">
+					<div class="intro color-2 d-lg-flex w-100 ftco-animate">
+						<div class="icon">
+							<span class="flaticon-free-delivery"></span>
+						</div>
+						<div class="text">
+							<h2>Free Shipping &amp; Return</h2>
+							<p>A small river named Duden flows by their place and supplies it with the necessary
+								regelialia.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="ftco-section ftco-no-pb">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 img img-3 d-flex justify-content-center align-items-center"
+					style="background-image: url(../images/about.jpg);">
+				</div>
+				<div class="col-md-6 wrap-about pl-md-5 ftco-animate py-5">
+					<div class="heading-section">
+						<span class="subheading">Since 1905</span>
+						<h2 class="mb-4">Desire Meets A New Taste</h2>
+
+						<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.
+							It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+						<p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it
+							would have been rewritten a thousand times and everything that was left from its origin
+							would be the word "and" and the Little Blind Text should turn around and return to its own,
+							safe country.</p>
+						<p class="year">
+							<strong class="number" data-number="115">0</strong>
+							<span>Years of Experience In Business</span>
+						</p>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="ftco-section ftco-no-pb">
+		<div class="container" id="row-categories">
+			<!-- Empty Message || categories  -->
+			<div class="owl-carousel owl-theme" id="categories-slider">
+
+				<!-- Agrega más items aquí si tienes más categorías -->
+			</div>
+		</div>
+	</section>
+
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center pb-5">
+				<div class="col-md-7 heading-section text-center ftco-animate">
+					<span class="subheading">Nuestras Deliciosas Ofertas</span>
+					<h2>Pruebalos Ya!</h2>
+				</div>
+			</div>
+			<div class="row" id="initProducts">
+
+				<!-- Empty message || render products-->
+
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-4">
+					<a href="product.html" class="btn btn-primary d-block">View All Products <span
+							class="fa fa-long-arrow-right"></span></a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="ftco-section testimony-section img mb-5" style="background-image: url(../images/bg_4.jpg);">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row justify-content-center mb-5">
+				<div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+					<span class="subheading">Testimonial</span>
+					<h2 class="mb-3">Happy Clients</h2>
+				</div>
+			</div>
+			<div class="row ftco-animate">
+				<div class="col-md-12">
+					<div class="carousel-testimony owl-carousel ftco-owl">
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="icon d-flex align-items-center justify-content-center"><span
+										class="fa fa-quote-left"></div>
+								<div class="text">
+									<p class="mb-4">Far far away, behind the word mountains, far from the countries
+										Vokalia and Consonantia, there live the blind texts.</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img" style="background-image: url(../images/person_1.jpg)">
+										</div>
+										<div class="pl-3">
+											<p class="name">Roger Scott</p>
+											<span class="position">Marketing Manager</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="icon d-flex align-items-center justify-content-center"><span
+										class="fa fa-quote-left"></div>
+								<div class="text">
+									<p class="mb-4">Far far away, behind the word mountains, far from the countries
+										Vokalia and Consonantia, there live the blind texts.</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img" style="background-image: url(../images/person_2.jpg)">
+										</div>
+										<div class="pl-3">
+											<p class="name">Roger Scott</p>
+											<span class="position">Marketing Manager</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="icon d-flex align-items-center justify-content-center"><span
+										class="fa fa-quote-left"></div>
+								<div class="text">
+									<p class="mb-4">Far far away, behind the word mountains, far from the countries
+										Vokalia and Consonantia, there live the blind texts.</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img" style="background-image: url(../images/person_3.jpg)">
+										</div>
+										<div class="pl-3">
+											<p class="name">Roger Scott</p>
+											<span class="position">Marketing Manager</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="icon d-flex align-items-center justify-content-center"><span
+										class="fa fa-quote-left"></div>
+								<div class="text">
+									<p class="mb-4">Far far away, behind the word mountains, far from the countries
+										Vokalia and Consonantia, there live the blind texts.</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img" style="background-image: url(../images/person_1.jpg)">
+										</div>
+										<div class="pl-3">
+											<p class="name">Roger Scott</p>
+											<span class="position">Marketing Manager</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="icon d-flex align-items-center justify-content-center"><span
+										class="fa fa-quote-left"></div>
+								<div class="text">
+									<p class="mb-4">Far far away, behind the word mountains, far from the countries
+										Vokalia and Consonantia, there live the blind texts.</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img" style="background-image: url(../images/person_2.jpg)">
+										</div>
+										<div class="pl-3">
+											<p class="name">Roger Scott</p>
+											<span class="position">Marketing Manager</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+
+	<footer class="ftco-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2 logo"><a href="#">Liquor <span>Store</span></a></h2>
+						<p>Far far away, behind the word mountains, far from the countries.</p>
+						<ul class="ftco-footer-social list-unstyled mt-2">
+							<li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md">
+					<div class="ftco-footer-widget mb-4 ml-md-4">
+						<h2 class="ftco-heading-2">My Accounts</h2>
+						<ul class="list-unstyled">
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>My Account</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Register</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Log In</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>My Order</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md">
+					<div class="ftco-footer-widget mb-4 ml-md-4">
+						<h2 class="ftco-heading-2">Information</h2>
+						<ul class="list-unstyled">
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>About us</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Catalog</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Contact us</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Term &amp; Conditions</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Quick Link</h2>
+						<ul class="list-unstyled">
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>New User</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Help Center</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Report Spam</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Faq's</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Have a Questions?</h2>
+						<div class="block-23 mb-3">
+							<ul>
+								<li><span class="icon fa fa-map marker"></span><span class="text">203 Fake St. Mountain
+										View, San Francisco, California, USA</span></li>
+								<li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929
+											210</span></a></li>
+								<li><a href="#"><span class="icon fa fa-paper-plane pr-4"></span><span
+											class="text">info@yourdomain.com</span></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+				stroke="#F96D00" />
+		</svg>
+	</div>
+
+
+	<div id="cartModal" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<div class="modal-body">
+				<div class="modal-left">
+					<img id="modal-image" src="" alt="Producto" />
+				</div>
+				<div class="modal-right">
+					<h3 id="modal-name">Nombre del producto</h3>
+					<label for="modal-quantity">Cantidad:</label>
+					<input type="number" id="modal-quantity" min="1" value="1" /><br>
+					<p>Precio: $<span id="modal-price">0.00</span></p>
+					<button id="add-to-cart-btn">Agregar al carrito</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Offcanvas Carrito -->
+	<div id="cartDrawer" class="cart-drawer">
+		<div class="cart-header">
+			<h2>Carrito</h2>
+			<button id="closeCartBtn" class="close-btn">&times;</button>
+		</div>
+		<div id="cart-body" class="cart-body">
+			<p class="empty">No hay productos en el carrito.</p>
+		</div>
+		<div class="cart-footer">
+			<div class="total-row">
+				<strong>Total:</strong>
+				<span id="cart-total">$0.00</span>
+			</div>
+			<button class="btn">Ver Carrito</button>
+			<button class="btn btn-primary">Proceder a Comprar</button>
+		</div>
+	</div>
+
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="../js/popper.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/jquery.easing.1.3.js"></script>
+	<script src="../js/jquery.waypoints.min.js"></script>
+	<script src="../js/jquery.stellar.min.js"></script>
+	<script src="../js/owl.carousel.min.js"></script>
+	<script src="../js/jquery.magnific-popup.min.js"></script>
+	<script src="../js/jquery.animateNumber.min.js"></script>
+	<script src="../js/scrollax.min.js"></script>
+	<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="js/google-map.js"></script>-->
+	<script src="../js/main.js"></script>
+
+
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+	<script>
+		const products = JSON.parse(localStorage.getItem('products')) || []
+		const categories = JSON.parse(localStorage.getItem('categories')) || []
+		const divContainerCategories = document.getElementById('row-categories')
+		const divSlaiderCategories = document.getElementById('categories-slider')
+
+		const divInitProducts = document.getElementById('initProducts')
+
+		const categoriesActives = categories.filter(category => category._status === 'activo');
+
+		const productsActiveAndMax8 = products
+			.filter(prodcut => prodcut._status === 'activo')
+			.slice(0, 8);
+
+		document.addEventListener("DOMContentLoaded", function () {
+			renderCategories()
+			renderInitProducts()
+
+		})
+
+		const cartDrawer = document.getElementById('cartDrawer');
+		const openCartBtn = document.getElementById('openCartBtn');
+		const closeCartBtn = document.getElementById('closeCartBtn');
+		const cartBody = document.getElementById('cart-body');
+		const cartTotal = document.getElementById('cart-total');
+		const cartCount = document.getElementById('cart-count');
+
+		let cartItems = [];
+
+		openCartBtn.addEventListener('click', () => cartDrawer.classList.add('open'));
+		closeCartBtn.addEventListener('click', () => cartDrawer.classList.remove('open'));
+
+		function updateCart() {
+			if (cartItems.length === 0) {
+				cartBody.innerHTML = `<p class="empty">No hay productos en el carrito.</p>`;
+				cartTotal.textContent = '$0.00';
+				cartCount.textContent = '0';
+				return;
+			}
+
+			let total = 0;
+			cartBody.innerHTML = '';
+
+			cartItems.forEach(item => {
+				total += item.price * item.quantity;
+
+				const div = document.createElement('div');
+				div.className = 'cart-item';
+				div.innerHTML = `
+        <img src="${item.image}" alt="${item.name}">
+        <div class="info">
+          <div><strong>${item.name}</strong></div>
+          <div>$${item.price.toFixed(2)} x ${item.quantity}</div>
+          <div>Subtotal: $${(item.price * item.quantity).toFixed(2)}</div>
+        </div>
+        <button data-id="${item.id}" class="remove-btn" style="color:red;border:none;background:none;font-size:16px;cursor:pointer;">✕</button>
+      `;
+				cartBody.appendChild(div);
+			});
+
+			cartTotal.textContent = `$${total.toFixed(2)}`;
+			cartCount.textContent = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+		}
+
+		// Simulación de agregar producto
+		function addToCart(product) {
+			const existing = cartItems.find(p => p.id === product.id);
+			if (existing) {
+				existing.quantity++;
+			} else {
+				cartItems.push({ ...product, quantity: 1 });
+			}
+			updateCart();
+		}
+
+		// Eliminar producto
+		cartBody.addEventListener('click', function (e) {
+			if (e.target.classList.contains('remove-btn')) {
+				const id = e.target.dataset.id;
+				cartItems = cartItems.filter(item => item.id !== id);
+				updateCart();
+			}
+		});
+
+		// Ejemplo: agregar producto
+		// addToCart({ id: '1', name: 'Pisco', price: 35.5, image: 'https://via.placeholder.com/50' });
+
+		const renderInitProducts = () => {
+			if (products.length === 0) {
+				divInitProducts.classList.add('justify-content-center')
+				divInitProducts.id = 'recent-product'
+				divInitProducts.innerHTML = `
+				<div class="col-md-6 d-flex justify-content-center align-items-center">
+					<div class="w-100 text-center" style="font-size:2rem; font-weight:600;">
+						No hay Productos Agregados
+					</div>
+				</div>
+				`
+			} else {
+				console.log(divInitProducts)
+				productsActiveAndMax8.forEach((product, index) => {
+					divInitProducts.innerHTML += `
+					<div class="col-md-3 d-flex">
+					<div class="product ftco-animate-cate" data-id="${index}">
+						<div class="img d-flex align-items-center justify-content-center"
+							style="background-image: url('${product._image}');">
+							<div class="desc">
+								<p class="meta-prod d-flex">
+									<a href="#" onclick="return false;"
+   										class="add-to-cart d-flex align-items-center justify-content-center"
+   										 id="openCartBtn"  data-index="${index}">
+   										<span class="flaticon-shopping-bag"></span>
+									</a>
+									<a href="#" class="d-flex align-items-center justify-content-center"><span
+											class="flaticon-heart"></span></a>
+									<a href="#" class="d-flex align-items-center justify-content-center"><span
+											class="flaticon-visibility"></span></a>
+								</p>
+							</div>
+						</div>
+						<div class="text text-center">
+							<span class="sale">Sale</span>
+							<span class="category">${product._category}</span>
+							<h2>${product._name}</h2>
+							<p class="mb-0"><span class="price price-sale">$69.00</span> $<span
+									class="price-real">${product._price}</span></p>
+						</div>
+					</div>
+				</div>
+					`
+				})
+
+			}
+		}
+
+		const renderCategories = () => {
+			if (categories.length === 0) {
+				divContainerCategories.innerHTML = `
+        <div class="row justify-content-center">
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <div class="w-100 text-center" style="font-size:2rem; font-weight:600;">
+                    No hay Categorias Agregadas
+                </div>
+            </div>
+        </div>
+    `;
+			} else {
+				// Construye todos los items en un solo string
+				let itemsHtml = '';
+				categoriesActives.forEach(category => {
+					itemsHtml += `
+            <div class="item">
+                <div class="sort w-100 text-center ftco-animate-cate">
+                    <div class="img" style="background-image: url(${category._image});"></div>
+                    <h3>${category._name}</h3>
+                </div>
+            </div>
+        `;
+				});
+				// Inserta el slider con todos los items
+				divContainerCategories.innerHTML = `
+        <div class="owl-carousel owl-theme" id="categories-slider">
+            ${itemsHtml}
+        </div>
+    `;
+				// Inicializa el slider después de insertar el HTML
+				$("#categories-slider").owlCarousel({
+					loop: true,
+					margin: 20,
+					nav: true,
+					navText: [
+						'<span class="fa fa-chevron-left"></span>',
+						'<span class="fa fa-chevron-right"></span>'
+					],
+					dots: false,
+					autoplay: true,
+					autoplayTimeout: 2500,
+					autoplayHoverPause: true,
+					responsive: {
+						0: { items: 2 },
+						600: { items: 3 },
+						1000: { items: 6 }
+					}
+				});
+			}
+		}
+	</script>
+
+
+</body>
+
+</html>

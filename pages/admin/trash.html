@@ -1,0 +1,219 @@
+/*  tableCategory.innerHTML += `
+        <tr>
+            <td>${categories.length}</td>
+            <td><img src="${category._image}" alt="Imagen de la categoria" class="rounded-circle avatar-sm"></td>
+            <td>${category._name}</td>
+            <td>${category._description}</td>
+            <td>${category._status}</td>
+            <td>
+                <button class="btn btn-xs btn-primary" onClick="editCategory(this)">Editar</button>
+                <button class="btn btn-xs btn-danger">Eliminar</button>
+            </td>
+        </tr>
+    `;*/
+
+    // row.insertCell().innerHTML = `
+                //    <div class="button-list" >
+                //         <button class="btn btn-sm btn-primary waves-effect waves-light" title="EDITAR" tabindex="0" data-plugin="tippy" data-tippy-theme="gradient">
+                //             <i class="mdi mdi-pencil"></i>
+                //         </button>
+                //         <button class="btn btn-sm btn-primary waves-effect waves-light" title="ELIMINAR !" tabindex="0" data-plugin="tippy" data-tippy-theme="gradient">
+                //             <span class="mdi mdi-delete"></span>
+                //         </button>
+                //     </div>    
+                // `;
+  // const cellActions = row.insertCell()
+                // cellActions.classList.add('d-flex', 'gap-2')
+                // const editButton = document.createElement('span')
+                // editButton.type = 'button'
+                // editButton.innerHTML = '<i class="mdi mdi-pencil"></i>'
+                // editButton.className = 'btn btn-sm btn-primary waves-effect waves-light'
+                // editButton.tabIndex = '0'
+                // editButton.setAttribute('data-plugin', 'tippy')
+                // editButton.setAttribute('data-tippy-content', 'Editar categoría')
+                // editButton.setAttribute('data-tippy-arrow', 'true')
+                // editButton.setAttribute('data-tippy-animation', 'scale')
+
+                // const deleteButton = document.createElement('span')
+                // deleteButton.type = 'button'
+                // deleteButton.innerHTML = '<span class="mdi mdi-delete"></span>'
+                // deleteButton.classList.add('btn', 'btn-soft-danger', 'waves-effect', 'waves-light')
+                // deleteButton.setAttribute('data-plugin', 'tippy')
+                // deleteButton.setAttribute('data-tippy-content', 'Eliminar categoría')
+                // deleteButton.setAttribute('data-tippy-arrow', 'true')
+                // deleteButton.setAttribute('data-tippy-animation', 'scale')
+
+
+                // cellActions.append(editButton, deleteButton)
+
+                  /* function editCategory(button) {
+             const row = button.closest('tr');
+             const index = Array.from(tableCategory.rows).indexOf(row) - 1;
+             const category = categories[index - 1];
+ 
+             // Rellenar los demás campos
+             document.getElementById('category-name').value = category._name;
+             document.querySelector('#snow-editor .ql-editor').innerHTML = category._description;
+             document.querySelector(`input[name="radioInline"][value="${category._status}"]`).checked = true;
+ 
+             // Reiniciar Dropify sin destruir estilos
+             const $drInput = $('#category-image');
+ 
+             // Destruir instancia actual
+             if ($drInput.data('dropify')) {
+                 $drInput.data('dropify').destroy();
+                 console.log("Dropify instance destroyed.");
+             }
+ 
+             // Actualizar data-default-file con la imagen desde Cloudinary
+             $drInput.attr('data-default-file', category._image);
+ 
+             // Reiniciar Dropify con la nueva imagen
+             $drInput.dropify();
+             $drInput.init()
+ 
+         }*/
+
+           // const addBtn = document.getElementById('addBtn');
+            // const laddaInstance = Ladda.create(addBtn);
+            // laddaInstance.start();
+
+            // laddaInstance.stop();
+
+            category._image = editCategory.image; // Mantener la imagen original si no se cambia
+                category._status = editCategory.status; // Mantener el estado original si no se cambia
+                category._name = editCategory.name; // Mantener el nombre original si no se cambia
+                category._description = editCategory.description; // Mantener la descripción original si no se cambia
+                categories = categories.map(cat => cat.name === editCategory.name ? category : cat);
+                // Actualizar el localStorage
+                localStorage.setItem('editCategory', JSON.stringify(category));
+
+                <div class="content">
+
+                <!-- Start Content-->
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box">
+                                <div class="page-title-right">
+                                    <a href="products.html" class="btn btn-primary waves-effect waves-light">
+                                        <i class="mdi mdi-eye me-1"></i>
+                                        Productos
+                                    </a>
+                                </div>
+                                <h4 class="page-title" id="titleCategory">Agregar Productos</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+                    <form id="form-category">
+                        <div class="row">
+
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="text-uppercase bg-light p-2 mt-0 mb-3">General</h5>
+
+
+                                        <div class="mb-3">
+                                            <label for="product-name" class="form-label">Nombre <span
+                                                    class="text-danger"></span></label>
+                                            <input type="text" id="product-name" class="form-control"
+                                                placeholder="Ingrese el nombre de la categoria">
+                                            <span id="error-product-name"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="select-category" class="form-label">Categories <span
+                                                    class="text-danger"></span></label>
+                                            <select class="form-select" id="select-category">
+                                                <option value="" disabled selected> (--Seleccione--)</option>
+
+                                            </select>
+                                            <span id="error-select-category"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="price" class="form-label">Precio <span
+                                                    class="text-danger"></span></label>
+                                            <input type="number" id="price" class="form-control" placeholder="0.0">
+                                            <span id="error-price"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="stock" class="form-label">Stock <span
+                                                    class="text-danger"></span></label>
+                                            <input type="number" id="stock" class="form-control" placeholder="0">
+                                            <span id="error-stock"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="product-description" class="form-label">Descripcion <span
+                                                    class="text-danger"></span></label>
+                                            <div id="snow-editor" style="height: 150px;"></div> <!-- end Snow-editor-->
+                                            <span id="error-description"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="mb-2">Estado <span class="text-danger"></span></label>
+                                            <br />
+                                            <div class="d-flex flex-wrap">
+                                                <div class="form-check me-2">
+                                                    <input class="form-check-input" type="radio" name="radioInline"
+                                                        value="activo" id="radio-active">
+                                                    <label class="form-check-label" for="inlineRadio1">Activo</label>
+                                                </div>
+                                                <div class="form-check me-2">
+                                                    <input class="form-check-input" type="radio" name="radioInline"
+                                                        value="desabilitado" id="radio-inactive">
+                                                    <label class="form-check-label"
+                                                        for="inlineRadio2">Desabilitado</label>
+                                                </div>
+                                            </div>
+                                            <span id="error-radio"></span>
+                                        </div>
+
+
+                                    </div>
+                                </div> <!-- end card -->
+                            </div> <!-- end col -->
+
+                            <div class="col-lg-6">
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="text-uppercase mt-0 mb-3 bg-light p-2">Producto Imagen</h5>
+                                        <input type="file" class="dropify" data-height="300" id="product-image" />
+                                        <span id="error-product-image"></span>
+                                    </div>
+                                </div> <!-- end col-->
+
+
+                            </div> <!-- end col-->
+
+                        </div>
+
+                        <!-- end row -->
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="text-center mb-3 d-flex justify-content-around">
+                                    <!-- <button type="submit" id="btn-submit"
+                                        class="btn w-sm btn-success waves-effect waves-light">Agregar</button> -->
+                                    <button class="ladda-button btn btn-primary" dir="ltr" data-style="zoom-out"
+                                        type="submit" id="addBtn">Agregar</button>
+
+                                    <button type="button" class="btn w-sm btn-light waves-effect"
+                                        id="btnCancel">Cancelar</button>
+
+                                </div>
+                            </div> <!-- end col -->
+                        </div>
+                    </form>
+
+                </div> <!-- container -->
+
+            </div> <!-- content -->

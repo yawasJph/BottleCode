@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>BottleCode - Carrito</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link
+		href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap"
+		rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="../css/animate.css">
+
+	<link rel="stylesheet" href="../css/owl.carousel.min.css">
+	<link rel="stylesheet" href="../css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="../css/magnific-popup.css">
+
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
+
+	<link rel="stylesheet" href="../css/flaticon.css">
+	<link rel="stylesheet" href="../css/style.css">
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+
+</head>
+
+<body>
+
+	<div class="wrap">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 d-flex align-items-center">
+					<p class="mb-0 phone pl-md-2">
+						<!-- <a href="#" class="mr-2"><span class="fa fa-phone mr-1"></span> +00 1234 567</a>
+						<a href="#"><span class="fa fa-paper-plane mr-1"></span> youremail@email.com</a> -->
+					</p>
+				</div>
+				<div class="col-md-6 d-flex justify-content-md-end">
+					<div class="social-media mr-4">
+						<p class="mb-0 d-flex">
+							<!-- <a href="#" class="d-flex align-items-center justify-content-center"><span
+									class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+							<a href="#" class="d-flex align-items-center justify-content-center"><span
+									class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
+							<a href="#" class="d-flex align-items-center justify-content-center"><span
+									class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+							<a href="#" class="d-flex align-items-center justify-content-center"><span
+									class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a> -->
+						</p>
+					</div>
+					<div class="reg">
+						<!-- <p class="mb-0"><a href="#" class="mr-2">Sign Up</a> <a href="#">Log In</a></p> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">Bottle <span>Code</span></a>
+			<div class="order-lg-last btn-group">
+				<a href="#" class="btn-cart dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false">
+					<span class="flaticon-shopping-bag" id="btn-cart"></span>
+					<div class="d-flex justify-content-center align-items-center"><small id="cart-count">0</small></div>
+				</a>
+
+			</div>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+				aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
+
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+					<li class="nav-item"><a href="about.html" class="nav-link">Nosotros</a></li>
+					<li class="nav-item dropdown active">
+						<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false">Categorias</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown04" id="navbar-category-dropdown">
+
+						</div>
+					</li>
+					<li class="nav-item"><a href="contact.html" class="nav-link">Contacto</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- END nav -->
+
+	<section class="hero-wrap hero-wrap-2" style="background-image: url('../images/bg_2.jpg');"
+		data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row no-gutters slider-text align-items-end justify-content-center">
+				<div class="col-md-9 ftco-animate mb-5 text-center">
+					<p class="breadcrumbs mb-0"><span class="mr-2"><a href="index.html">Inicio <i
+									class="fa fa-chevron-right"></i></a></span> <span>Carrito <i
+								class="fa fa-chevron-right"></i></span></p>
+					<h2 class="mb-0 bread">Mi Carrito</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row">
+				<div class="table-wrap">
+					<table class="table" id="cartTable">
+						<thead class="thead-primary">
+							<tr>
+								<th>&nbsp;</th>
+								<th>Producto</th>
+								<th>Precio</th>
+								<th>Cantidad</th>
+								<th>Importe</th>
+								<th>&nbsp;</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<div class="img" style="background-image: url(../images/prod-1.jpg);"></div>
+								</td>
+								<td>
+									Jim Beam Kentucky Straight
+								</td>
+								<td>S/ 44.99</td>
+								<td class="quantity">
+									<div class="input-group">
+										<input type="number" name="quantity" class="quantity form-control input-number"
+											value="2" min="1" max="100">
+									</div>
+								</td>
+								<td>S/ 89.98</td>
+								<td>
+									<button type="button" class="btn btn-danger" data-dismiss="alert"
+										aria-label="Close">
+										<span aria-hidden="true"><i class="fa fa-trash"></i></span>
+									</button>
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+				<div class="d-flex align-items-center justify-content-center p-1" style="min-height: 150px;">
+					<a class="btn btn-primary mt-2" href="product.html">
+						<i class="bi bi-arrow-left"></i> Continuar Comprando
+					</a>
+				</div>
+
+			</div>
+			<div class="row justify-content-center">
+				<div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
+					<div class="cart-total mb-4 p-3 border rounded bg-light">
+						<h3>Total a Pagar</h3>
+						<p class="d-flex">
+							<span>Subtotal</span>
+							<span>S/ 20.60</span>
+						</p>
+						<p class="d-flex">
+							<span>Delivery</span>
+							<span>gratis</span>
+						</p>
+						<hr>
+						<p class="d-flex total-price">
+							<span>Total</span>
+							<span>S /17.60</span>
+						</p>
+					</div>
+					<p class="text-center"><button id="btn-checkout" class="btn btn-primary py-3 px-4 w-100"> <i class="bi bi-credit-card"></i> Proceder a
+							comprar</button></p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- <section class="ftco-section">
+		<div class="container">
+			<div class="row">
+				
+				<div class="col-md-8">
+					<div class="table-wrap">
+						<table class="table" id="cartTable">
+							<thead class="thead-primary">
+								<tr>
+									<th>&nbsp;</th>
+									<th>Producto</th>
+									<th>Precio</th>
+									<th>Cantidad</th>
+									<th>Importe</th>
+									<th>&nbsp;</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<div class="img"
+											style="background-image: url(../images/prod-1.jpg); height: 60px; width: 60px; background-size: cover;">
+										</div>
+									</td>
+									<td>Jim Beam Kentucky Straight</td>
+									<td>S/ 44.99</td>
+									<td class="quantity">
+										<div class="input-group">
+											<input type="number" name="quantity"
+												class="quantity form-control input-number" value="2" min="1" max="100">
+										</div>
+									</td>
+									<td>S/ 89.98</td>
+									<td>
+										<button type="button" class="btn btn-danger">
+											<i class="fa fa-trash"></i>
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						
+						<div class="d-flex align-items-center justify-content-start mt-3">
+							<a class="btn btn-outline-primary" href="product.html">
+								<i class="bi bi-arrow-left"></i> Continuar Comprando
+							</a>
+						</div>
+					</div>
+				</div>
+
+				
+				<div class="col-md-4">
+					<div class="cart-wrap ftco-animate">
+						<div class="cart-total mb-4 p-3 border rounded bg-light">
+							<h3>Total a Pagar</h3>
+							<p class="d-flex justify-content-between">
+								<span>Subtotal</span>
+								<span>S/ 20.60</span>
+							</p>
+							<p class="d-flex justify-content-between">
+								<span>Delivery</span>
+								<span>Gratis</span>
+							</p>
+							<hr>
+							<p class="d-flex justify-content-between total-price fw-bold">
+								<span>Total</span>
+								<span>S/ 17.60</span>
+							</p>
+						</div>
+						<p class="text-center">
+							<button id="btn-checkout" class="btn btn-primary py-3 px-4 w-100">
+								<i class="bi bi-credit-card"></i> Proceder a Comprar
+							</button>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section> -->
+	<footer class="ftco-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2 logo"><a href="#">Bottle <span>Code</span></a></h2>
+						<p>Lejos, muy lejos, detrás de las montañas de palabras, lejos de los países.</p>
+						<ul class="ftco-footer-social list-unstyled mt-2">
+							<li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md">
+					<div class="ftco-footer-widget mb-4 ml-md-4">
+						<h2 class="ftco-heading-2">Mis Cuentas</h2>
+						<ul class="list-unstyled">
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Mi Cuenta</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Registrar</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Iniciar sesión</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Mi pedido</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md">
+					<div class="ftco-footer-widget mb-4 ml-md-4">
+						<h2 class="ftco-heading-2">Informacion</h2>
+						<ul class="list-unstyled">
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Nosotros</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Categorias</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Contacto</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Términos y Condiciones</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Enlace rápido</h2>
+						<ul class="list-unstyled">
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Nuevo Usuario</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Centro de Ayuda</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Informar spam</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Preguntas frecuentes</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">¿Tienes preguntas?</h2>
+						<div class="block-23 mb-3">
+							<ul>
+								<li><span class="icon fa fa-map marker"></span><span class="text">203 Calle Falsa, Vista
+										de la Montaña, San Francisco, California, EE. UU.</span></li>
+								<li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929
+											210</span></a></li>
+								<li><a href="#"><span class="icon fa fa-paper-plane pr-4"></span><span
+											class="text">BottleCode@gmail.com</span></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+				stroke="#F96D00" />
+		</svg>
+	</div>
+
+
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="../js/popper.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/jquery.easing.1.3.js"></script>
+	<script src="../js/jquery.waypoints.min.js"></script>
+	<script src="../js/jquery.stellar.min.js"></script>
+	<script src="../js/owl.carousel.min.js"></script>
+	<script src="../js/jquery.magnific-popup.min.js"></script>
+	<script src="../js/jquery.animateNumber.min.js"></script>
+	<script src="../js/scrollax.min.js"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="../js/google-map.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+	<script src="../js/main.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+	<script>
+		document.getElementById('btn-checkout').addEventListener('click', function (e) {
+			e.preventDefault();
+
+			// Verifica si el carrito está vacío
+			if (cartItems.length === 0) {
+				Swal.fire({
+					title: 'Carrito vacío',
+					text: 'Debes añadir al menos un producto al carrito para proceder al pago.',
+					icon: 'warning',
+					confirmButtonText: 'Entendido'
+				});
+				return;
+			}
+
+			// Si hay productos, puedes proceder con la lógica de compra
+			// Por ejemplo: redirigir, mostrar otro modal, etc.
+			Swal.fire({
+				title: 'Todo listo',
+				text: 'Redirigiendo al proceso de pago...',
+				icon: 'success',
+				timer: 1500,
+				showConfirmButton: false
+			});
+
+			// Simulación de redirección (cámbiala por lo que necesites)
+			setTimeout(() => {
+				window.location.href = 'checkout.html';
+			}, 1600);
+		});
+	</script>
+
+	<script>
+		//hola que ase
+		const categories = JSON.parse(localStorage.getItem('categories')) || []
+		const categoriesActives = categories.filter(category => category._status === 'activo');
+		let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+		//init functions rage
+		document.addEventListener("DOMContentLoaded", function () {
+			dropdownCategory()
+			renderCartTable()
+			updateCartCount()
+		})
+
+		//update cart count
+		function updateCartCount() {
+			const total = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+			document.getElementById('cart-count').textContent = total;
+		}
+
+		// render cart tablle
+		function renderCartTable() {
+			const cartTableBody = document.querySelector('#cartTable tbody');
+			const subtotalElement = document.querySelector('.cart-total p:nth-child(2) span:nth-child(2)');
+			const totalElement = document.querySelector('.total-price span:nth-child(2)');
+			let subtotal = 0;
+
+			cartTableBody.innerHTML = "";
+
+			if (cartItems.length === 0) {
+				//empty kara inai na 
+				cartTableBody.innerHTML = `
+			<tr>
+				<td colspan="6" class="text-center py-5">
+					<div class="empty-cart">
+						<i class="bi bi-cart-x" style="font-size: 3rem;"></i>
+						<h5 class="mb-2">Tu carrito está vacío</h5>
+						<p class="text-muted">Añade productos para comenzar a comprar</p>
+						<a class="btn btn-primary mt-2" href="product.html" >Continuar Comprando</a>
+					</div>
+				</td>
+			</tr>
+		`;
+
+				// clean da yo
+				subtotalElement.textContent = "S/ 0.00";
+				totalElement.textContent = "S/ 0.00";
+				return; // reretuturnrn
+			}
+
+			// render cart items
+			cartItems.forEach(item => {
+				const price = parseFloat(item.price);
+				const quantity = item.quantity;
+				const total = price * quantity;
+				subtotal += total;
+
+				const row = document.createElement('tr');
+
+				row.innerHTML = `
+			<td>
+				<div class="img" style="background-image: url(${item.image}); width: 100px; height: 100px; background-size: cover;"></div>
+			</td>
+			<td>${item.name}</td>
+			<td>S/ ${price.toFixed(2)}</td>
+			<td class="quantity">
+				<div class="input-group">
+					<input type="number" name="quantity" class="quantity form-control input-number"
+						value="${quantity}" min="1" max="100" data-id="${item.id}">
+				</div>
+			</td>
+			<td>S/ ${total.toFixed(2)}</td>
+			<td>
+				<button type="button" class="btn btn-danger delete-item" data-id="${item.id}">
+					<i class="fa fa-trash"></i>
+				</button>
+			</td>
+		`;
+
+				cartTableBody.appendChild(row);
+			});
+
+			// update totals
+			subtotalElement.textContent = `S/ ${subtotal.toFixed(2)}`;
+			totalElement.textContent = `S/ ${subtotal.toFixed(2)}`;
+
+			// delete product with mas flow
+			document.querySelectorAll('.delete-item').forEach(button => {
+				button.addEventListener('click', function () {
+					const id = this.getAttribute('data-id');
+					const itemName = cartItems.find(item => item.id === id)?.name || "este producto";
+
+					Swal.fire({
+						title: `¿Eliminar "${itemName}"?`,
+						text: "Esta acción no se puede deshacer.",
+						icon: 'warning',
+						showCancelButton: true,
+						confirmButtonColor: '#d33',
+						cancelButtonColor: '#3085d6',
+						confirmButtonText: 'Sí, eliminar',
+						cancelButtonText: 'Cancelar'
+					}).then((result) => {
+						if (result.isConfirmed) {
+							const newCartItems = cartItems.filter(item => item.id !== id);
+							localStorage.setItem('cartItems', JSON.stringify(newCartItems));
+
+							Swal.fire({
+								title: 'Eliminado',
+								text: `"${itemName}" fue eliminado del carrito.`,
+								icon: 'success',
+								timer: 1500,
+								showConfirmButton: false
+							}).then(() => {
+								//renderCartTable()
+								location.reload(); // this is the remix
+							});
+						}
+					});
+				});
+			});
+
+			// uodate quantity
+			document.querySelectorAll('input[name="quantity"]').forEach(input => {
+				input.addEventListener('change', function () {
+					const newQty = parseInt(this.value);
+					const id = this.getAttribute('data-id');
+					const item = cartItems.find(i => i.id === id);
+					if (item) {
+						item.quantity = newQty;
+						//renderCartTable()
+						localStorage.setItem('cartItems', JSON.stringify(cartItems));
+						location.reload();
+						
+					}
+				});
+			});
+		}
+
+		//nigasa nee so! 
+		document.getElementById('btn-cart').addEventListener('click', () => {
+			location.reload()
+		})
+
+		//render categories doropodaun neeeeeee!
+		function dropdownCategory() {
+			const dropdownContainer = document.getElementById('navbar-category-dropdown');
+
+			dropdownContainer.innerHTML = '';
+
+			if (categoriesActives.length === 0) {
+				const noItem = document.createElement('div');
+				noItem.className = 'dropdown-item text-muted d-flex align-items-center gap-2';
+				noItem.style.pointerEvents = 'none';
+				noItem.innerHTML = `<i class="bi bi-info-circle"></i> <span>Sin categorías disponibles</span>`;
+				dropdownContainer.appendChild(noItem);
+				return;
+			}
+
+			// Opcton "Todos"
+			const allItem = document.createElement('a');
+			allItem.className = 'dropdown-item category-link';
+			allItem.href = `product.html`;
+			allItem.textContent = 'Todos';
+			dropdownContainer.appendChild(allItem);
+
+			// add active categories 
+			categoriesActives.forEach(category => {
+				const link = document.createElement('a');
+				link.className = 'dropdown-item';
+				link.href = `product.html?category=${encodeURIComponent(category._name.toLowerCase())}`;
+				link.textContent = category._name;
+				dropdownContainer.appendChild(link);
+			});
+		}
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" data-topbar-color="dark">
+
+<head>
+    <meta charset="utf-8" />
+    <title>BottleCode - Admin - productoss</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="../../images/admin/favicon.ico">
+
+    <!-- Theme Config Js -->
+    <script src="../../js/admin/head.js"></script>
+
+    <!-- Bootstrap css -->
+    <link href="../../css/admin/bootstrap.min.css" rel="stylesheet" type="text/css" id="app-style" />
+
+    <!-- App css -->
+    <link href="../../css/admin/app.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Icons css -->
+    <link href="../../css/admin/icons.min.css" rel="stylesheet" type="text/css" />
+
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
+    <style>
+        .fade-out {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Begin page -->
+    <div id="wrapper">
+        <!-- ========== Menu ========== -->
+        <div class="app-menu">
+            <!-- Brand Logo -->
+            <div class="logo-box">
+                <!-- Brand Logo Light -->
+                <a href="index.html" class="logo-light">
+                    <!-- <img src="../../images/admin/logo-light.png" alt="logo" class="logo-lg">
+                    <img src="../../images/admin/logo-sm.png" alt="small logo" class="logo-sm"> -->
+                    <a class="logo-lg fs-3" href="index.html">Bottle <span style="color: #ff6600;">Code</span></a>
+                    <a class="logo-sm" href="index.html">Bottle <span style="color: #ff6600;">Code</span></a>
+                </a>
+                <!-- Brand Logo Dark -->
+                <a href="index.html" class="logo-dark">
+                    <!-- <img src="../../images/admin/logo-dark.png" alt="dark logo" class="logo-lg">
+                    <img src="../../images/admin/logo-sm.png" alt="small logo" class="logo-sm"> -->
+                </a>
+            </div>
+            <!-- menu-left -->
+             <div class="scrollbar">
+                <!--- Menu -->
+                <ul class="menu">
+                    <li class="menu-title">Negocio</li>
+
+                    <li class="menu-item">
+                        <a href="#menuCrm" data-bs-toggle="collapse" class="menu-link">
+                            <span class="menu-icon"><i data-feather="layers"></i></span>
+                            <span class="menu-text"> Categorias </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <div class="collapse" id="menuCrm">
+                            <ul class="sub-menu">
+                                <li class="menu-item">
+                                    <a href="categories.html" class="menu-link">
+                                        <span class="menu-text">Ver Categorias</span>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="add-category.html" class="menu-link">
+                                        <span class="menu-text">Agregar Categorias</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#menuEcommerce" data-bs-toggle="collapse" class="menu-link">
+                            <span class="menu-icon"><i data-feather="shopping-cart"></i></span>
+                            <span class="menu-text"> Productos </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <div class="collapse" id="menuEcommerce">
+                            <ul class="sub-menu">
+
+                                <li class="menu-item">
+                                    <a href="products.html" class="menu-link">
+                                        <span class="menu-text">Ver Productos</span>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="add-product.html" class="menu-link">
+                                        <span class="menu-text">Agregar Productos</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+
+                </ul>
+                <!--- End Menu -->
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- ========== Left menu End ========== -->
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+
+        <div class="content-page">
+
+            <!-- ========== Topbar Start ========== -->
+            <div class="navbar-custom">
+                <div class="topbar">
+                    <div class="topbar-menu d-flex align-items-center gap-1">
+
+                        <!-- Topbar Brand Logo -->
+                        <div class="logo-box">
+                            <!-- Brand Logo Light -->
+                            <a href="index.html" class="logo-light">
+                                <img src="../../images/admin/logo-light.png" alt="logo" class="logo-lg">
+                                <img src="../../images/admin/logo-sm.png" alt="small logo" class="logo-sm">
+                            </a>
+
+                            <!-- Brand Logo Dark -->
+                            <a href="index.html" class="logo-dark">
+                                <img src="../../images/admin/logo-dark.png" alt="dark logo" class="logo-lg">
+                                <img src="../../images/admin/logo-sm.png" alt="small logo" class="logo-sm">
+                            </a>
+                        </div>
+
+                        <!-- Sidebar Menu Toggle Button -->
+                        <button class="button-toggle-menu">
+                            <i class="mdi mdi-menu"></i>
+                        </button>
+
+                    </div>
+
+                    <ul class="topbar-menu d-flex align-items-center">
+                        <!-- Topbar Search Form -->
+                        <!-- <li class="app-search dropdown me-3 d-none d-lg-block">
+                            <form>
+                                <input type="search" class="form-control rounded-pill" placeholder="Search..."
+                                    id="top-search">
+                                <span class="search-icon font-16">
+                                    <i data-feather="search"></i>
+                                </span>
+                            </form>
+
+                        </li> -->
+
+                        <!-- Fullscreen Button -->
+                        <li class="d-none d-md-inline-block">
+                            <a class="nav-link waves-effect waves-light" href="" data-toggle="fullscreen">
+                                <div class="font-22">
+                                    <i data-feather="maximize"></i>
+                                </div>
+                            </a>
+                        </li>
+
+                        <!-- Search Dropdown (for Mobile/Tablet) -->
+                        <li class="dropdown d-lg-none">
+                            <a class="nav-link dropdown-toggle waves-effect waves-light arrow-none"
+                                data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
+                                aria-expanded="false">
+                                <i class="ri-search-line font-22"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-animated dropdown-lg p-0">
+                                <form class="p-3">
+                                    <input type="search" class="form-control" placeholder="Search ..."
+                                        aria-label="Recipient's username">
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- Light/Dark Mode Toggle Button -->
+                        <li class="d-none d-sm-inline-block">
+                            <div class="nav-link waves-effect waves-light" id="light-dark-mode">
+                                <i class="ri-moon-line font-22"></i>
+                            </div>
+                        </li>
+
+                        <!-- User Dropdown -->
+                        <li class="dropdown">
+                            <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light"
+                                data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
+                                aria-expanded="false">
+                                <img src="../../images/admin/user-1.jpg" alt="user-image" class="rounded-circle">
+                                <span class="ms-1 d-none d-md-inline-block">
+                                    Brisa <i class="mdi mdi-chevron-down"></i>
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
+                                <!-- item-->
+                                <div class="dropdown-header noti-title">
+                                    <h6 class="text-overflow m-0">Welcome !</h6>
+
+                                </div>
+
+
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i data-feather="user" class="fe-user"></i>
+
+                                    <span>My Account</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i data-feather="settings" class="fe-settings"></i>
+                                    <span>Settings</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i data-feather="lock" class="fe-lock"></i>
+                                    <span>Lock Screen</span>
+                                </a>
+
+                                <div class="dropdown-divider"></div>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i data-feather="log-out" class="fe-log-out"></i>
+                                    <span>Logout</span>
+                                </a>
+
+                            </div>
+                        </li>
+
+                        <!-- Right Bar offcanvas button (Theme Customization Panel) -->
+                    </ul>
+                </div>
+            </div>
+            <!-- ========== Topbar End ========== -->
+
+            <div class="content">
+
+                <!-- Start Content-->
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box">
+                                <div class="page-title-right">
+                                    <a href="add-product.html" class="btn btn-primary waves-effect waves-light">
+                                        <i class="mdi mdi-plus-circle me-1"></i>
+                                        Nuevo Prodcuto
+                                    </a>
+                                </div>
+                                <h4 class="page-title">Productos</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <!-- <h4 class="header-title">Filtering</h4>
+                                    <p class="sub-header">
+                                        include filtering in your FooTable.
+                                    </p> -->
+
+                                    <div class="mb-2">
+                                        <div class="row row-cols-sm-auto g-2 align-items-center">
+                                            <div class="col-12 text-sm-center">
+                                                <select id="demo-foo-filter-status" class="form-select form-select-sm">
+                                                    <option value="">Todos</option>
+                                                    <option value="activo">Activo</option>
+                                                    <option value="desabilitado">Desabilitado</option>
+                                                    <!-- <option value="suspended">Suspended</option> -->
+                                                </select>
+                                            </div>
+                                            <div class="col-12">
+                                                <input id="demo-foo-search" type="text" placeholder="Search"
+                                                    class="form-control form-control-sm" autocomplete="on">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="table-responsive">
+                                        <table id="demo-foo-filtering" class="table table-bordered toggle-circle mb-0"
+                                            data-page-size="7">
+                                            <thead>
+                                                <tr>
+                                                    <th data-toggle="true">#</th>
+                                                    <th>Imagen</th>
+                                                    <th data-hide="phone">Nombre</th>
+                                                    <th data-hide="phone">Categoria</th>
+                                                    <th data-hide="phone">Precio</th>
+                                                    <th data-hide="phone">Stock</th>
+                                                    <th data-hide="phone, tablet">Descripcion</th>
+                                                    <th data-hide="phone, tablet">Estado</th>
+                                                    <th> Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="9" class="text-center py-5 fs-4 text-primary"> No hay
+                                                        Productos Agregados
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr class="active">
+                                                    <td colspan="9">
+                                                        <div class="text-end">
+                                                            <ul
+                                                                class="pagination pagination-rounded justify-content-end footable-pagination mb-0">
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div> <!-- end card -->
+                        </div> <!-- end col -->
+                    </div>
+                    <!-- end row -->
+                    <!-- end row-->
+
+                </div> <!-- container -->
+
+            </div> <!-- content -->
+            <!-- content -->
+
+
+
+            <!-- Footer Start -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div>
+                                <script>document.write(new Date().getFullYear())</script> © <a
+                                    href="../../pages/index.html" target="_blank">BottleCode.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- end Footer -->
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+
+    </div>
+    <!-- END wrapper -->
+
+    <!-- Vendor js -->
+    <script src="../../js/admin/vendor.min.js"></script>
+
+    <!-- App js -->
+    <script src="../../js/admin/app.min.js"></script>
+
+    <!-- Footable js -->
+    <script src="../../js/admin/footable.all.min.js"></script>
+
+    <!--tippy js-->
+    <script src="../../js/admin/tippy.all.min.js"></script>
+
+    <!-- Init js -->
+    <script src="../../js/admin/foo-tables.init.js"></script>
+
+    <script src="../../js/jsTrash/productsV0.js"> </script>
+
+</body>
+
+</html>

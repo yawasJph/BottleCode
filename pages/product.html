@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>BottleCode - Categorias</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+	<link
+		href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap"
+		rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="../css/animate.css">
+
+	<link rel="stylesheet" href="../css/owl.carousel.min.css">
+	<link rel="stylesheet" href="../css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="../css/magnific-popup.css">
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+	<link rel="stylesheet" href="../css/flaticon.css">
+
+	<link rel="stylesheet" href="../css/style.css">
+
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
+</head>
+<style>
+	@media (max-width: 1000.98px) {
+		#userIcon {
+			display: none !important;
+		}
+
+	}
+
+	@media (max-width: 800.98px) {
+		#cate-links {
+			display: none !important;
+		}
+	}
+
+	/* Oculto por defecto */
+	#row-select-category {
+		display: none;
+	}
+
+	/* Mostrar solo en pantallas pequeñas */
+	@media (max-width: 800.98px) {
+		#row-select-category {
+			display: block;
+
+		}
+	}
+
+	.category-link.active {
+		font-weight: bold;
+		color: #ff6600;
+	}
+
+	.pagination {
+		display: flex;
+		justify-content: center;
+		margin-top: 30px;
+	}
+
+	.pagination li {
+		margin: 0 5px;
+		list-style: none;
+	}
+
+	.pagination li a,
+	.pagination li span {
+		display: inline-block;
+		padding: 5px 12px;
+		border: 1px solid #ddd;
+		border-radius: 4px;
+		color: #333;
+		text-decoration: none;
+		transition: all 0.3s;
+	}
+
+	.pagination li.active span {
+		background: #ff6600;
+		color: white;
+		border-color: #ff6600;
+	}
+
+	.pagination li a:hover {
+		background: #f5f5f5;
+	}
+
+	.pagination li.disabled a {
+		color: #ccc;
+		pointer-events: none;
+	}
+</style>
+
+<body>
+
+
+	<div class="wrap">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 d-flex align-items-center">
+					<!-- <p class="mb-0 phone pl-md-2">
+						<a href="#" class="mr-2"><span class="fa fa-phone mr-1"></span> +00 1234 567</a>
+						<a href="#"><span class="fa fa-paper-plane mr-1"></span> youremail@email.com</a>
+					</p> -->
+				</div>
+				<div class="col-md-6 d-flex justify-content-md-end">
+					<div class="social-media mr-4">
+						<!-- <p class="mb-0 d-flex">
+							<a href="#" class="d-flex align-items-center justify-content-center"><span
+									class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+							<a href="#" class="d-flex align-items-center justify-content-center"><span
+									class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
+							<a href="#" class="d-flex align-items-center justify-content-center"><span
+									class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+							<a href="#" class="d-flex align-items-center justify-content-center"><span
+									class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
+						</p> -->
+					</div>
+					<div class="reg">
+						<!-- <p class="mb-0"><a href="#" class="mr-2">Sign Up</a> <a href="#">Log In</a></p> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">Bottle <span>Code</span></a>
+			<div class="order-lg-last btn-group gap-4">
+				<a href="javascript:void(0)" class="position-relative" data-bs-toggle="offcanvas"
+					data-bs-target="#offcanvasCart" id="btn-cart">
+					<span class="flaticon-shopping-bag fs-4"></span>
+					<span id="cart-count"
+						class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger ">
+						0
+					</span>
+				</a>
+			</div>
+
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+				aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
+
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a href="index.html" class="nav-link">Inicio</a></li>
+					<li class="nav-item"><a href="about.html" class="nav-link">Nosotros</a></li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="product.html" id="dropdown04" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false">Categorias</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown04" id="navbar-category-dropdown">
+
+						</div>
+					</li>
+					<li class="nav-item"><a href="contact.html" class="nav-link">Contacto</a></li>
+				</ul>
+				<!-- <ul class="navbar-nav ml-auto" id="userIcon">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false"><i class="bi bi-person fs-4"></i></a>
+						<div class="dropdown-menu" aria-labelledby="dropdown05">
+							<a class="dropdown-item" href="#">Iniciar Sesion</a>
+							<a class="dropdown-item" href="#">Registrarse</a>
+						</div>
+					</li>
+				</ul> -->
+			</div>
+		</div>
+	</nav>
+	<!-- END nav -->
+
+	<section class="hero-wrap hero-wrap-2" style="background-image: url('../images/bg_2.jpg');"
+		data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row no-gutters slider-text align-items-end justify-content-center">
+				<div class="col-md-9 ftco-animate mb-5 text-center">
+					<p class="breadcrumbs mb-0"><span class="mr-2"><a href="index.html">Inicio <i
+									class="fa fa-chevron-right"></i></a></span> <span>Categorias </span> </p>
+					<h2 class="mb-0 bread" id="hero-title"></h2>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="ftco-section">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-9">
+					<div class="row mb-4" id="row-select-category">
+						<div class="col-md-12 d-flex justify-content-start align-items-center gap-2">
+							<h4 class="product-select">Categorias</h4>
+							<select class="selectpicker" multiple id="categoryFilter"
+								title="(--Seleccione categorias--)">
+								<!-- <option>Brandy</option>
+								<option>Gin</option>
+								<option>Rum</option>
+								<option>Tequila</option>
+								<option>Vodka</option>
+								<option>Whiskey</option> -->
+							</select>
+						</div>
+					</div>
+					<div class="row" id="initProducts">
+						<!--Empty message || render products-->
+					</div>
+					<div class="row mt-5">
+						<div class="col text-center">
+							<div class="block-27">
+								<ul id="pagination"></ul>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-md-3" id="cate-links">
+					<div class="sidebar-box ftco-animate">
+						<div class="categories">
+							<h3>Categorias</h3>
+							<ul class="p-0">
+								<!-- <li><a href="#" class="category-link active" data-category="all">Todos</a></li>
+								<li><a href="#" class="category-link" data-category="brandy">Brandy </a></li>
+								<li><a href="#" class="category-link" data-category="gin">Gin </a></li>
+								<li><a href="#" class="category-link" data-category="Rum">Rum </a></li>
+								<li><a href="#" class="category-link" data-category="tequila">Tequila </a></li>
+								<li><a href="#" class="category-link" data-category="vodka">Vodka </a></li>
+								<li><a href="#" class="category-link" data-category="whiskey">Whiskey </a></li> -->
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer class="ftco-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2 logo"><a href="#">Bottle <span>Code</span></a></h2>
+						<p>Lejos, muy lejos, detrás de las montañas de palabras, lejos de los países.</p>
+						<ul class="ftco-footer-social list-unstyled mt-2">
+							<li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md">
+					<div class="ftco-footer-widget mb-4 ml-md-4">
+						<h2 class="ftco-heading-2">Mis Cuentas</h2>
+						<ul class="list-unstyled">
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Mi Cuenta</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Registrar</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Iniciar sesión</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Mi pedido</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md">
+					<div class="ftco-footer-widget mb-4 ml-md-4">
+						<h2 class="ftco-heading-2">Informacion</h2>
+						<ul class="list-unstyled">
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Nosotros</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Categorias</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Contacto</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Términos y Condiciones</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Enlace rápido</h2>
+						<ul class="list-unstyled">
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Nuevo Usuario</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Centro de Ayuda</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Informar spam</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Preguntas frecuentes</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">¿Tienes preguntas?</h2>
+						<div class="block-23 mb-3">
+							<ul>
+								<li><span class="icon fa fa-map marker"></span><span class="text">203 Calle Falsa, Vista
+										de la Montaña, San Francisco, California, EE. UU.</span></li>
+								<li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929
+											210</span></a></li>
+								<li><a href="#"><span class="icon fa fa-paper-plane pr-4"></span><span
+											class="text">BottleCode@gmail.com</span></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+
+
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+				stroke="#F96D00" />
+		</svg></div>
+
+	<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
+		<div class="offcanvas-header">
+			<div>
+				<h5 class="offcanvas-title" id="offcanvasCartLabel">
+					<i class="bi bi-cart3 me-2"></i>Carrito de Compras
+				</h5>
+				<p class="mb-0 small">Tus productos seleccionados</p>
+			</div>
+			<button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+				aria-label="Cerrar"></button>
+		</div>
+		<div class="offcanvas-body d-flex flex-column">
+			<div id="cart-body" class="mb-3 flex-grow-1">
+				<!-- Los elementos del carrito se insertarán aquí -->
+			</div>
+
+			<div class="summary-card mt-auto">
+				<div class="d-flex justify-content-between align-items-center mb-3 border-top pt-2">
+					<strong class="fs-5">Total:</strong>
+					<span id="cart-total" class="fs-5 fw-bold " style="color: brown;">S/ 0.00</span>
+				</div>
+				<div class="d-grid gap-2">
+					<a class="btn btn-view-cart btn-outline-secondary" href="cart.html">
+						<i class="bi bi-cart me-1"></i> Ver Carrito Completo
+					</a>
+					<button id="btn-checkout" class="btn btn-checkout text-white">
+						<i class="bi bi-credit-card me-1"></i> Proceder a Comprar
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="../js/popper.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/jquery.easing.1.3.js"></script>
+	<script src="../js/jquery.waypoints.min.js"></script>
+	<script src="../js/jquery.stellar.min.js"></script>
+	<script src="../js/owl.carousel.min.js"></script>
+	<script src="../js/jquery.magnific-popup.min.js"></script>
+	<script src="../js/jquery.animateNumber.min.js"></script>
+	<script src="../js/scrollax.min.js"></script>
+	<!-- <script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="../js/google-map.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+	<script src="../js/main.js"></script>
+
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+	<script>
+		document.getElementById('btn-checkout').addEventListener('click', function (e) {
+			e.preventDefault();
+
+			// Verifica si el carrito está vacío
+			if (cartItems.length === 0) {
+				Swal.fire({
+					title: 'Carrito vacío',
+					text: 'Debes añadir al menos un producto al carrito para proceder al pago.',
+					icon: 'warning',
+					confirmButtonText: 'Entendido'
+				});
+				return;
+			}
+
+			// Si hay productos, puedes proceder con la lógica de compra
+			// Por ejemplo: redirigir, mostrar otro modal, etc.
+			Swal.fire({
+				title: 'Todo listo',
+				text: 'Redirigiendo al proceso de pago...',
+				icon: 'success',
+				timer: 1500,
+				showConfirmButton: false
+			});
+
+			// Simulación de redirección (cámbiala por lo que necesites)
+			setTimeout(() => {
+				window.location.href = 'checkout.html';
+			}, 1600);
+		});
+	</script>
+
+	<script>
+		const products = JSON.parse(localStorage.getItem('products')) || []
+		const categories = JSON.parse(localStorage.getItem('categories')) || []
+		const divInitProducts = document.getElementById('initProducts')
+
+		const categoriesActives = categories.filter(category => category._status === 'activo');
+
+		// filter products active y max 8  - porsiaca 
+		const productsActiveAndMax8 = products
+			.filter(prodcut => prodcut._status === 'activo')
+			.slice(0, 7);
+
+
+		// Inicializar con todos los productos activos
+		document.addEventListener("DOMContentLoaded", function () {
+			const productsActive = products.filter(p => p._status === 'activo');
+			initPagination(productsActive);
+			renderCart();
+			renderCategories(categoriesActives)
+
+			const urlParams = new URLSearchParams(window.location.search);
+			const categoryParam = urlParams.get('category');
+
+			const heroTitle = document.getElementById('hero-title')
+			if (categoryParam) {
+				heroTitle.textContent = categoryParam.toUpperCase();
+			}
+
+
+			renderInitLinksCategory(categoryParam)
+			renderInitSelectCategy(categoryParam)
+			dropdownCategory()
+		});
+
+		function dropdownCategory() {
+			const dropdownContainer = document.getElementById('navbar-category-dropdown');
+
+			// Limpiar por si acaso
+			dropdownContainer.innerHTML = '';
+
+			if (categoriesActives.length === 0) {
+				// Mostrar mensaje informativo con ícono
+				const noItem = document.createElement('div');
+				noItem.className = 'dropdown-item text-muted d-flex align-items-center gap-2';
+				noItem.style.pointerEvents = 'none';
+				noItem.innerHTML = `<i class="bi bi-info-circle"></i> <span>Sin categorías disponibles</span>`;
+				dropdownContainer.appendChild(noItem);
+				return;
+			}
+
+			// Opción "Todos"
+			const allItem = document.createElement('a');
+			allItem.className = 'dropdown-item category-link';
+			allItem.href = `product.html`;
+			allItem.textContent = 'Todos';
+			dropdownContainer.appendChild(allItem);
+
+			// Agregar categorías activas
+			categoriesActives.forEach(category => {
+				const link = document.createElement('a');
+				link.className = 'dropdown-item';
+				link.href = `product.html?category=${encodeURIComponent(category._name.toLowerCase())}`;
+				link.textContent = category._name;
+				dropdownContainer.appendChild(link);
+			});
+		}
+
+
+		function renderInitLinksCategory(categoryParam) {
+			if (categoryParam) {
+				const category = categoryParam.toLowerCase();
+				// Opcional: resaltar el enlace activo si lo deseas
+				const activeLink = document.querySelector(`.category-link[data-category="${categoryParam}"]`);
+				console.log(activeLink)
+				document.querySelectorAll('.category-link').forEach(l => l.classList.remove('active'));
+				if (activeLink) activeLink.classList.add('active');
+
+				const filtered = category === 'all'
+					? products.filter(p => p._status === 'activo')
+					: products.filter(p =>
+						p._category.toLowerCase() === category &&
+						p._status === 'activo'
+					);
+
+				currentPage = 1;
+				initPagination(filtered);
+			} else {
+				// Si no hay categoría en URL, mostrar todos
+				const filtered = products.filter(p => p._status === 'activo');
+				initPagination(filtered);
+
+			}
+		}
+
+		function renderInitSelectCategy(categoryParam) {
+			if (categoryParam) {
+				const category = categoryParam.toLowerCase();
+
+				// 👉 Establecer la categoría como seleccionada en el select múltiple
+				const categorySelect = document.getElementById('categoryFilter');
+				Array.from(categorySelect.options).forEach(option => {
+					option.selected = option.value.toLowerCase() === category;
+				});
+
+				// 👉 Aplicar el filtro correspondiente
+				const filtered = products.filter(p =>
+					p._category.toLowerCase() === category &&
+					p._status === 'activo'
+				);
+
+				currentPage = 1;
+				initPagination(filtered);
+			} else {
+				// Si no hay categoría en la URL, mostrar todo
+				const filtered = products.filter(p => p._status === 'activo');
+				initPagination(filtered);
+			}
+
+		}
+
+		function renderCategories(categories) {
+			const select = document.getElementById('categoryFilter');
+			const sidebarList = document.querySelector('#cate-links .categories ul');
+
+			// Limpiar contenido actual
+			select.innerHTML = '';
+			sidebarList.innerHTML = '';
+
+			// Agregar opción 'Todos' en el sidebar
+			const allItem = document.createElement('li');
+			allItem.innerHTML = `<a href="#" class="category-link active" data-category="all">Todos</a>`;
+			sidebarList.appendChild(allItem);
+
+			// Agregar categorías
+			categories.forEach(category => {
+				const name = category._name;
+
+				// Agregar al select
+				const option = document.createElement('option');
+				option.value = name.toLowerCase();
+				option.textContent = name;
+				select.appendChild(option);
+
+				// Agregar al sidebar
+				const li = document.createElement('li');
+				li.innerHTML = `<a href="#" class="category-link" data-category="${name.toLowerCase()}">${name}</a>`;
+				sidebarList.appendChild(li);
+			});
+
+			// // Refrescar Bootstrap Select (si es necesario)
+			if (typeof $ !== 'undefined' && $.fn.selectpicker) {
+				$('#categoryFilter').selectpicker('refresh');
+			}
+		}
+
+		let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+		//add items to cart
+		document.addEventListener('click', function (e) {
+			const addBtn = e.target.closest('.add-to-cart');
+			if (!addBtn) return;
+
+			const productEl = addBtn.closest('.product');
+			console.log(productEl)
+			const id = productEl.dataset.id; // Necesitarás agregar data-id a cada .product
+			const name = productEl.querySelector('h2').textContent;
+			const price = productEl.querySelector('p .price-real').textContent;
+			const image = productEl.querySelector('.img').style.backgroundImage.replace('url("', '').replace('")', '');
+
+			const existingItem = cartItems.find(item => item.name === name);
+
+			if (existingItem) {
+				existingItem.quantity += 1;
+			} else {
+				cartItems.push({ id, name, price, image, quantity: 1 });
+			}
+
+			renderCart();
+			saveCartToLocalStorage();
+		});
+
+		document.addEventListener('click', function (e) {
+			const viewProduct = e.target.closest('.view-product');
+			if (!viewProduct) return;
+
+			const productEl = viewProduct.closest('.product');
+			const viewId = productEl.dataset.id;
+
+			localStorage.setItem('viewId', viewId)
+			window.location.href = 'product-single.html';
+		});
+
+
+		// render cart items
+		function renderCart() {
+			const cartBody = document.getElementById('cart-body');
+
+			if (cartItems.length === 0) {
+				cartBody.innerHTML = `
+    <div class="empty-cart">
+        <i class="bi bi-cart-x"></i>
+        <h5 class="mb-2">Tu carrito está vacío</h5>
+        <p class="text-muted">Añade productos para comenzar a comprar</p>
+        <a href="product.html" class="btn btn-primary mt-2">
+            Continuar Comprando
+        </a>
+    </div>
+`;
+				document.getElementById('cart-total').textContent = 'S/ 0.00';
+				updateCartCount();
+				return;
+			}
+			cartBody.innerHTML = cartItems.map(item => `
+	 			<div class="cart-item">
+                    <div class="d-flex">
+                        <img src="${item.image}" alt="${item.name}" class="cart-img me-3">
+                        <div class="flex-grow-1">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="mb-1">${item.name}</h6>
+                                <button class="btn btn-sm btn-link text-danger btn-delete p-0" data-id="${item.id}">
+                                    Eliminar
+                                </button>
+                            </div>
+                            <p class="mb-1">S/ ${item.price}</p>
+                            
+                            <div class="d-flex align-items-center mt-2">
+                                <div class="input-group input-group-sm" style="max-width: 130px;">
+                                    <button class="btn btn-outline-secondary quantity-btn btn-decrease" data-id="${item.id}">
+                                        -
+                                    </button>
+                                    <input type="number" min="1" class="form-control text-center quantity-input input-qty" 
+                                           data-id="${item.id}" value="${item.quantity}">
+                                    <button class="btn btn-outline-secondary quantity-btn btn-increase" data-id="${item.id}">
+                                        +
+                                    </button>
+                                </div>
+                                <div class="ms-auto fw-bold">
+                                    S/ ${(item.price * item.quantity).toFixed(2)}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				
+ 				 `).join('');
+			updateCartCount();
+			updateCartTotal();
+		}
+
+		//save to local storage
+		function saveCartToLocalStorage() {
+			localStorage.setItem('cartItems', JSON.stringify(cartItems));
+		}
+
+		// cart delete item
+		document.addEventListener('click', function (e) {
+			if (e.target.classList.contains('btn-delete')) {
+				const id = e.target.dataset.id;
+
+				Swal.fire({
+					title: '¿Eliminar producto?',
+					text: "Esta acción no se puede deshacer",
+					icon: 'warning',
+					showCancelButton: true,
+					confirmButtonText: 'Sí, eliminar',
+					cancelButtonText: 'Cancelar',
+					confirmButtonColor: '#d33',
+					cancelButtonColor: '#3085d6'
+				}).then((result) => {
+					if (result.isConfirmed) {
+						cartItems = cartItems.filter(item => item.id !== id);
+						renderCart();
+						saveCartToLocalStorage();
+
+						Swal.fire({
+							icon: 'success',
+							title: 'Eliminado',
+							text: 'El producto fue eliminado del carrito',
+							timer: 1500,
+							showConfirmButton: false
+						});
+
+					}
+				});
+			}
+		});
+
+		// cart item botton up / decrese quantity
+		document.addEventListener('click', function (e) {
+			if (e.target.classList.contains('btn-increase') || e.target.classList.contains('btn-decrease')) {
+				const id = e.target.dataset.id;
+				const item = cartItems.find(prod => prod.id === id);
+				if (!item) return;
+
+				if (e.target.classList.contains('btn-increase')) {
+					item.quantity++;
+				} else if (item.quantity > 1) {
+					item.quantity--;
+				}
+
+				renderCart();
+				saveCartToLocalStorage();
+			}
+		});
+
+		// cart item input up / decrese quantity
+		document.addEventListener('input', function (e) {
+			if (e.target.classList.contains('input-qty')) {
+				const id = e.target.dataset.id;
+				const newQty = parseInt(e.target.value);
+				const item = cartItems.find(prod => prod.id === id);
+
+				if (item && newQty > 0) {
+					item.quantity = newQty;
+					renderCart();
+					saveCartToLocalStorage();
+				}
+			}
+		});
+
+		// update cart count
+		function updateCartCount() {
+			const total = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+			document.getElementById('cart-count').textContent = total;
+		}
+
+		// update cart total
+		function updateCartTotal() {
+			const total = cartItems.reduce((sum, item) => {
+				const itemPrice = parseFloat(item.price); //.replace('S/ ', '')
+				return sum + itemPrice * item.quantity;
+			}, 0);
+
+			document.getElementById('cart-total').textContent = `S/ ${total.toFixed(2)}`;
+		}
+
+		//sidebar links category
+		document.querySelector('#cate-links .categories ul').addEventListener('click', function (e) {
+			const link = e.target.closest('.category-link');
+			if (!link) return; // Clic fuera de un link válido
+
+			e.preventDefault();
+
+			// Resetear paginación
+			currentPage = 1;
+
+			// Eliminar clase active de todos
+			document.querySelectorAll('.category-link').forEach(l => l.classList.remove('active'));
+			link.classList.add('active');
+
+			const category = link.dataset.category.toLowerCase();
+
+
+			const heroTitle = document.getElementById('hero-title')
+			if (category == 'all') {
+				heroTitle.textContent = 'TODOS';
+			} else {
+				heroTitle.textContent = category.toUpperCase();
+			}
+
+			const filtered = category === 'all'
+				? products.filter(p => p._status === 'activo')
+				: products.filter(p =>
+					p._category.toLowerCase() === category &&
+					p._status === 'activo'
+				);
+
+			initPagination(filtered);
+		});
+
+		// Modificar el evento del selector múltiple
+		document.getElementById('categoryFilter').addEventListener('change', function () {
+			// Resetear paginación
+			currentPage = 1;
+
+			const selectedOptions = Array.from(this.selectedOptions).map(opt => opt.value.toLowerCase());
+
+			const heroTitle = document.getElementById('hero-title')
+			heroTitle.textContent = '';
+
+			const filteredProducts = selectedOptions.length > 0
+				? products.filter(p =>
+					selectedOptions.includes(p._category.toLowerCase()) &&
+					p._status === 'activo'
+				)
+				: products.filter(p => p._status === 'activo');
+
+			initPagination(filteredProducts);
+		});
+
+		// render init products
+		const renderInitProducts = (filtered = productsActiveAndMax8) => {
+			divInitProducts.innerHTML = '';
+			if (filtered.length === 0) {
+				divInitProducts.classList.add('justify-content-center')
+				divInitProducts.id = 'recent-product'
+				divInitProducts.innerHTML = `
+				<div class="col-md-6 d-flex justify-content-center align-items-center">
+					<div class="w-100 text-center" style="font-size:2rem; font-weight:600;">
+						No hay Productos Agregados
+					</div>
+				</div>
+				`
+			} else {
+				filtered.forEach((product, index) => {
+					divInitProducts.innerHTML += `
+					<div class="col-md-4 d-flex">
+							<div class="product ftco-animate-cate" data-id="${product._name}" data-category="${product._category}">
+								<div class="img d-flex align-items-center justify-content-center"
+									style="background-image: url(${product._image});">
+									<div class="desc">
+										<p class="meta-prod d-flex">
+											<a href="javascript:void(0);" class="add-to-cart d-flex align-items-center justify-content-center"
+											data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" title = "Agregar al carrito">
+											<span class="flaticon-shopping-bag"></span></a>
+											
+											<a href="#" class="view-product d-flex align-items-center justify-content-center" title="Ver Producto"><span
+													class="flaticon-visibility"></span></a>
+										</p>
+									</div>
+								</div>
+								<div class="text text-center">
+									<span class="sale">Sale</span>
+									<span class="category">${product._category}</span>
+									<h2>${product._name}</h2>
+									<p class="mb-0"><span class="price price-sale">S/ 69.00</span> S/<span
+										class="price-real">${product._price}</span>
+									</p>
+		 						</div>
+							</div>
+						</div>
+					
+					`
+				})
+
+			}
+		}
+
+		const productsPerPage = 6;
+		let currentPage = 1;
+		let currentProducts = [];
+
+		// Función para inicializar la paginación
+		function initPagination(productsArray) {
+			currentProducts = productsArray;
+			renderPagination();
+			renderPage();
+		}
+
+		// Función para renderizar la paginación
+		function renderPagination() {
+			const totalPages = Math.ceil(currentProducts.length / productsPerPage);
+			const pagination = document.getElementById('pagination');
+			pagination.innerHTML = '';
+
+			// Botón Anterior
+			const prevLi = document.createElement('li');
+			prevLi.innerHTML = `<a href="#initProducts" class="${currentPage === 1 ? 'disabled' : ''}" data-page="${currentPage - 1}">&lt;</a>`;
+			pagination.appendChild(prevLi);
+
+			// Números de página
+			for (let i = 1; i <= totalPages; i++) {
+				const li = document.createElement('li');
+				if (i === currentPage) {
+					li.innerHTML = `<span>${i}</span>`;
+					li.classList.add('active');
+				} else {
+					li.innerHTML = `<a href="#initProducts" data-page="${i}">${i}</a>`;
+				}
+				pagination.appendChild(li);
+			}
+
+			// Botón Siguiente
+			const nextLi = document.createElement('li');
+			nextLi.innerHTML = `<a href="#initProducts" class="${currentPage === totalPages ? 'disabled' : ''}" data-page="${currentPage + 1}">&gt;</a>`;
+			pagination.appendChild(nextLi);
+
+			// Event listeners para los botones
+			document.querySelectorAll('#pagination a').forEach(link => {
+				link.addEventListener('click', function (e) {
+					e.preventDefault();
+					if (!this.classList.contains('disabled')) {
+						currentPage = parseInt(this.dataset.page);
+						renderPage();
+						renderPagination();
+					}
+				});
+			});
+		}
+
+		// Función para renderizar la página actual
+		function renderPage() {
+			const startIndex = (currentPage - 1) * productsPerPage;
+			const endIndex = startIndex + productsPerPage;
+			const productsToShow = currentProducts.slice(startIndex, endIndex);
+			renderInitProducts(productsToShow);
+		}
+	</script>
+
+</body>
+
+</html>

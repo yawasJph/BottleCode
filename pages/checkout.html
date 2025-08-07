@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>BottleCode - Pago</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link
+		href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap"
+		rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="../css/animate.css">
+
+	<link rel="stylesheet" href="../css/owl.carousel.min.css">
+	<link rel="stylesheet" href="../css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="../css/magnific-popup.css">
+
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
+
+	<link rel="stylesheet" href="../css/flaticon.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<style>
+		span.text-danger {
+			display: block;
+			margin-top: 5px;
+			font-size: 0.85rem;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="wrap">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 d-flex align-items-center">
+					<p class="mb-0 phone pl-md-2">
+						<!-- <a href="#" class="mr-2"><span class="fa fa-phone mr-1"></span> +00 1234 567</a>
+						<a href="#"><span class="fa fa-paper-plane mr-1"></span> youremail@email.com</a> -->
+					</p>
+				</div>
+				<div class="col-md-6 d-flex justify-content-md-end">
+					<div class="social-media mr-4">
+						<p class="mb-0 d-flex">
+							<!-- <a href="#" class="d-flex align-items-center justify-content-center"><span
+									class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+							<a href="#" class="d-flex align-items-center justify-content-center"><span
+									class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
+							<a href="#" class="d-flex align-items-center justify-content-center"><span
+									class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+							<a href="#" class="d-flex align-items-center justify-content-center"><span
+									class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a> -->
+						</p>
+					</div>
+					<div class="reg">
+						<!-- <p class="mb-0"><a href="#" class="mr-2">Sign Up</a> <a href="#">Log In</a></p> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">Bottle <span>Code</span></a>
+			<div class="order-lg-last btn-group">
+				<a href="#" class="btn-cart dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false">
+					<span class="flaticon-shopping-bag" id="btn-cart"></span>
+					<div class="d-flex justify-content-center align-items-center"><small id="cart-count">0</small></div>
+				</a>
+
+			</div>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+				aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
+
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+					<li class="nav-item"><a href="about.html" class="nav-link">Nosotros</a></li>
+					<li class="nav-item dropdown active">
+						<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false">Categorias</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown04" id="navbar-category-dropdown">
+
+						</div>
+					</li>
+					<li class="nav-item"><a href="contact.html" class="nav-link">Contacto</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- END nav -->
+
+	<section class="hero-wrap hero-wrap-2" style="background-image: url('../images/bg_2.jpg');"
+		data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row no-gutters slider-text align-items-end justify-content-center">
+				<div class="col-md-9 ftco-animate mb-5 text-center">
+					<p class="breadcrumbs mb-0"><span class="mr-2"><a href="index.html">Home <i
+									class="fa fa-chevron-right"></i></a></span> <span>Pagar <i
+								class="fa fa-chevron-right"></i></span></p>
+					<h2 class="mb-0 bread">Pagar</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-xl-10 ftco-animate">
+					<form class="billing-form">
+						<h3 class="mb-4 billing-heading">Detalles de facturación</h3>
+						<div class="row align-items-end">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="firstname">Nombre</label>
+									<input type="text" class="form-control" id="firstname" placeholder="Nombre">
+									<span id="error-firstname" class="text-danger small"></span>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="lastname">Apellido</label>
+									<input type="text" class="form-control" placeholder="Apellido" id="lastname">
+									<span id="error-lastname" class="text-danger small"></span>
+								</div>
+							</div>
+							<div class="w-100"></div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="selectCountry">Estado / País</label>
+									<div class="select-wrap">
+										<div class="icon"><span class="ion-ios-arrow-down"></span></div>
+										<select name="" id="selectCountry" class="form-control">
+											<option value="">(--Seleccione--)</option>
+											<option value="France">France</option>
+											<option value="Italy">Italy</option>
+											<option value="Philippines">Philippines</option>
+											<option value="South Korea">South Korea</option>
+											<option value="Hongkong">Hongkong</option>
+											<option value="Japan">Japan</option>
+										</select>
+										<span id="error-country" class="text-danger small"></span>
+									</div>
+								</div>
+							</div>
+							<div class="w-100"></div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="streetaddress">Dirección de la calle</label>
+									<input type="text" class="form-control" placeholder="House number and street name"
+										id="streetaddress">
+									<span id="error-address" class="text-danger small"></span>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<input type="text" class="form-control"
+										placeholder="Appartment, suite, unit etc: (optional)">
+								</div>
+							</div>
+							<div class="w-100"></div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="towncity">Pueblo / Ciudad</label>
+									<input type="text" class="form-control" placeholder="" id="towncity">
+									<span id="error-towncity" class="text-danger small"></span>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="postcodezip">Código postal / ZIP *</label>
+									<input type="text" class="form-control" placeholder="" id="postcodezip">
+									<span id="error-zip" class="text-danger small"></span>
+
+								</div>
+							</div>
+							<div class="w-100"></div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="phone">Teléfono</label>
+									<input type="text" class="form-control" placeholder="" id="phone">
+									<span id="error-phone" class="text-danger small"></span>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="emailaddress">Dirección de correo electrónico</label>
+									<input type="text" class="form-control" placeholder="" id="emailaddress">
+									<span id="error-email" class="text-danger small"></span>
+								</div>
+							</div>
+							<div class="w-100"></div>
+							<div class="col-md-12">
+								<div class="form-group mt-4">
+									<div class="radio">
+										<label class="mr-3"><input type="radio" name="optradio"> ¿Crear una cuenta?
+										</label>
+										<label><input type="radio" name="optradio"> Enviar a diferente dirección</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+
+
+
+					<div class="row mt-5 pt-3 d-flex">
+						<div class="col-md-6 d-flex">
+							<div class="cart-detail cart-total p-3 p-md-4">
+								<h3 class="billing-heading mb-4">Total</h3>
+								<p class="d-flex">
+									<span>Subtotal</span>
+									<span id="subtotal">S/ 0.00</span>
+								</p>
+								<p class="d-flex">
+									<span>Delivery</span>
+									<span>gratis</span>
+								</p>
+
+								<hr>
+								<p class="d-flex total-price">
+									<span>Total</span>
+									<span id="total">S/ 0.00</span>
+								</p>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="cart-detail p-3 p-md-4">
+								<h3 class="billing-heading mb-4">Metodo de Pago</h3>
+								<div class="form-group">
+									<div class="col-md-12">
+										<div class="radio">
+											<label><input type="radio" name="optradio" class="mr-2"> Transferencia
+												Bancaria Directa</label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-12">
+										<div class="radio">
+											<label><input type="radio" name="optradio" class="mr-2">Verificar
+												Pago</label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-12">
+										<div class="radio">
+											<label><input type="radio" name="optradio" class="mr-2"> Paypal</label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-12">
+										<div class="checkbox">
+											<label><input type="checkbox" value="" class="mr-2"> He leído y acepto los
+												términos y condiciones</label>
+										</div>
+									</div>
+								</div>
+								<p><a href="#" class="btn btn-primary py-3 px-4" id="shopping">Comprar</a></p>
+							</div>
+						</div>
+					</div>
+				</div> <!-- .col-md-8 -->
+			</div>
+		</div>
+	</section>
+
+	<footer class="ftco-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2 logo"><a href="#">Bottle <span>Code</span></a></h2>
+						<p>Lejos, muy lejos, detrás de las montañas de palabras, lejos de los países.</p>
+						<ul class="ftco-footer-social list-unstyled mt-2">
+							<li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md">
+					<div class="ftco-footer-widget mb-4 ml-md-4">
+						<h2 class="ftco-heading-2">Mis Cuentas</h2>
+						<ul class="list-unstyled">
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Mi Cuenta</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Registrar</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Iniciar sesión</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Mi pedido</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md">
+					<div class="ftco-footer-widget mb-4 ml-md-4">
+						<h2 class="ftco-heading-2">Informacion</h2>
+						<ul class="list-unstyled">
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Nosotros</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Categorias</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Contacto</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Términos y Condiciones</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Enlace rápido</h2>
+						<ul class="list-unstyled">
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Nuevo Usuario</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Centro de Ayuda</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Informar spam</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Preguntas frecuentes</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">¿Tienes preguntas?</h2>
+						<div class="block-23 mb-3">
+							<ul>
+								<li><span class="icon fa fa-map marker"></span><span class="text">203 Calle Falsa, Vista
+										de la Montaña, San Francisco, California, EE. UU.</span></li>
+								<li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929
+											210</span></a></li>
+								<li><a href="#"><span class="icon fa fa-paper-plane pr-4"></span><span
+											class="text">BottleCode@gmail.com</span></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+				stroke="#F96D00" />
+		</svg></div>
+
+
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="../js/popper.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/jquery.easing.1.3.js"></script>
+	<script src="../js/jquery.waypoints.min.js"></script>
+	<script src="../js/jquery.stellar.min.js"></script>
+	<script src="../js/owl.carousel.min.js"></script>
+	<script src="../js/jquery.magnific-popup.min.js"></script>
+	<script src="../js/jquery.animateNumber.min.js"></script>
+	<script src="../js/scrollax.min.js"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="../js/google-map.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+	<script src="../js/main.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+	<script>
+		document.getElementById('shopping').addEventListener('click', function (e) {
+			e.preventDefault();
+
+			let valid = true;
+
+			const firstname = document.getElementById('firstname').value.trim();
+			const lastname = document.getElementById('lastname').value.trim();
+			const country = document.getElementById('selectCountry').value.trim();
+			const address = document.getElementById('streetaddress').value.trim();
+			const city = document.getElementById('towncity').value.trim();
+			const zip = document.getElementById('postcodezip').value.trim();
+			const phone = document.getElementById('phone').value.trim();
+			const email = document.getElementById('emailaddress').value.trim();
+
+			// Limpiar errores
+			const clearError = id => document.getElementById(id).textContent = '';
+			[
+				'error-firstname', 'error-lastname', 'error-country', 'error-address',
+				'error-towncity', 'error-zip', 'error-phone', 'error-email'
+			].forEach(clearError);
+
+			// Validaciones
+			if (!firstname) {
+				document.getElementById('error-firstname').textContent = 'Ingresa tu nombre.';
+				valid = false;
+			}
+			if (!lastname) {
+				document.getElementById('error-lastname').textContent = 'Ingresa tu apellido.';
+				valid = false;
+			}
+			if (!country) {
+				document.getElementById('error-country').textContent = 'Selecciona un país.';
+				valid = false;
+			}
+			if (!address) {
+				document.getElementById('error-address').textContent = 'Ingresa una dirección.';
+				valid = false;
+			}
+			if (!city) {
+				document.getElementById('error-towncity').textContent = 'Ingresa tu ciudad.';
+				valid = false;
+			}
+			if (!zip) {
+				document.getElementById('error-zip').textContent = 'Ingresa tu código postal.';
+				valid = false;
+			}
+			if (!phone) {
+				document.getElementById('error-phone').textContent = 'Ingresa tu número de teléfono.';
+				valid = false;
+			} else if (!/^\d{7,}$/.test(phone)) {
+				document.getElementById('error-phone').textContent = 'Número de teléfono inválido.';
+				valid = false;
+			}
+			if (!email) {
+				document.getElementById('error-email').textContent = 'Ingresa tu correo electrónico.';
+				valid = false;
+			} else if (!/^\S+@\S+\.\S+$/.test(email)) {
+				document.getElementById('error-email').textContent = 'Correo electrónico inválido.';
+				valid = false;
+			}
+
+			if (valid) {
+				Swal.fire({
+					title: 'Todo listo',
+					text: 'Compra realizada con éxito',
+					icon: 'success',
+					timer: 1500,
+					showConfirmButton: false
+				});
+
+				localStorage.removeItem('cartItems');
+				localStorage.removeItem('cartTotal');
+
+				setTimeout(() => {
+					window.location.href = 'thx.html';
+				}, 1600);
+			}
+		});
+
+		// Eventos 'input' para limpiar errores al escribir
+		document.getElementById('firstname').addEventListener('input', () => {
+			document.getElementById('error-firstname').textContent = '';
+		});
+		document.getElementById('lastname').addEventListener('input', () => {
+			document.getElementById('error-lastname').textContent = '';
+		});
+		document.getElementById('selectCountry').addEventListener('input', () => {
+			document.getElementById('error-country').textContent = '';
+		});
+		document.getElementById('streetaddress').addEventListener('input', () => {
+			document.getElementById('error-address').textContent = '';
+		});
+		document.getElementById('towncity').addEventListener('input', () => {
+			document.getElementById('error-towncity').textContent = '';
+		});
+		document.getElementById('postcodezip').addEventListener('input', () => {
+			document.getElementById('error-zip').textContent = '';
+		});
+		document.getElementById('phone').addEventListener('input', () => {
+			document.getElementById('error-phone').textContent = '';
+		});
+		document.getElementById('emailaddress').addEventListener('input', () => {
+			document.getElementById('error-email').textContent = '';
+		});
+	</script>
+
+
+
+
+	<script>
+
+		const categories = JSON.parse(localStorage.getItem('categories')) || [];
+		const categoriesActives = categories.filter(category => category._status === 'activo');
+		let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+
+		const cartTotal = localStorage.getItem('cartTotal') || '0.00'
+
+
+		document.addEventListener("DOMContentLoaded", function () {
+			dropdownCategory()
+			updateCartCount()
+			document.getElementById('subtotal').textContent = `S/ ${cartTotal}`
+			document.getElementById('total').textContent = `S/ ${cartTotal}`
+		});
+
+		document.getElementById('btn-cart').addEventListener('click', () => {
+			window.location.href = 'cart.html'
+		})
+
+		function dropdownCategory() {
+			const dropdownContainer = document.getElementById('navbar-category-dropdown');
+
+			dropdownContainer.innerHTML = '';
+
+			if (categoriesActives.length === 0) {
+				const noItem = document.createElement('div');
+				noItem.className = 'dropdown-item text-muted d-flex align-items-center gap-2';
+				noItem.style.pointerEvents = 'none';
+				noItem.innerHTML = `<i class="bi bi-info-circle"></i> <span>Sin categorías disponibles</span>`;
+				dropdownContainer.appendChild(noItem);
+				return;
+			}
+
+			// Optión "Todos"
+			const allItem = document.createElement('a');
+			allItem.className = 'dropdown-item category-link';
+			allItem.href = `product.html`;
+			allItem.textContent = 'Todos';
+			dropdownContainer.appendChild(allItem);
+
+			// add categoires active
+			categoriesActives.forEach(category => {
+				const link = document.createElement('a');
+				link.className = 'dropdown-item';
+				link.href = `product.html?category=${encodeURIComponent(category._name.toLowerCase())}`;
+				link.textContent = category._name;
+				dropdownContainer.appendChild(link);
+			});
+		}
+
+		// update cart count
+		function updateCartCount() {
+			const total = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+			document.getElementById('cart-count').textContent = total;
+		}
+	</script>
+
+</body>
+
+</html>
