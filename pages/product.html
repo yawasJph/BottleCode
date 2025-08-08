@@ -746,6 +746,7 @@
 			}, 0);
 
 			document.getElementById('cart-total').textContent = `S/ ${total.toFixed(2)}`;
+			localStorage.setItem('cartTotal', total.toFixed(2));
 		}
 
 		//sidebar links category

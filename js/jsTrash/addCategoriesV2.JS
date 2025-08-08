@@ -85,7 +85,7 @@ formCategory.addEventListener('submit', async function (event) {
 
     try {
         const category = await handleCategorySubmit({ name, description, status, imageFile });
-        showToast(category, editCategory ? 'editado correctamente' : 'agregada correctamente');
+        showToast(category, editCategory ? 'editado' : 'agregada');
         resetForm();
     } catch (error) {
         console.error("Error al guardar la categoría:", error);

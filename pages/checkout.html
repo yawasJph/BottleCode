@@ -375,6 +375,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 	<script>
+
 		document.getElementById('shopping').addEventListener('click', function (e) {
 			e.preventDefault();
 
@@ -492,7 +493,7 @@
 
 
 		const cartTotal = localStorage.getItem('cartTotal') || '0.00'
-
+		console.log(cartTotal)
 
 		document.addEventListener("DOMContentLoaded", function () {
 			dropdownCategory()
@@ -541,6 +542,8 @@
 			const total = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 			document.getElementById('cart-count').textContent = total;
 		}
+
+
 	</script>
 
 </body>

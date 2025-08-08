@@ -91,7 +91,7 @@ form.addEventListener('submit', async (e) => {
 
     try {
         const product = await handleProductSubmit({ name, category, price, stock, description, status, imageFile });
-        showToast(product, editProduct ? 'editado correctamente' : 'agregada correctamente');
+        showToast(product, editProduct ? 'editado' : 'agregado');
         // showToast(product, 'agregado correctamente');
         resetForm();
     } catch (error) {

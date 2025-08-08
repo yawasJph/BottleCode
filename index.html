@@ -1,14 +1,788 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BottleCode</title>
     <script>
+
+
+
+        const categoriesTest = [{
+            _description: "",
+            _image: "https://res.cloudinary.com/dcrcl48si/image/upload/v1753656095/ziwnldyw9mx21juopbby.jpg",
+            _name: "Gin",
+            _status: "activo"
+        },
+        {
+            _description: "",
+            _image: "https://res.cloudinary.com/dcrcl48si/image/upload/v1753656565/xumsdywmmwephuuiymyk.jpg",
+            _name: "Rum",
+            _status: "activo"
+        },
+        {
+            _description: "",
+            _image: "https://res.cloudinary.com/dcrcl48si/image/upload/v1753656599/i9lvfimqsyajc3piongi.jpg",
+            _name: "Tequila",
+            _status: "activo"
+        },
+        {
+            _description: "",
+            _image: "https://res.cloudinary.com/dcrcl48si/image/upload/v1753656647/uirvgnv6ueh8v27juuk4.jpg",
+            _name: "whiskey",
+            _status: "activo"
+        },
+
+        {
+            _description: "",
+            _image: "https://res.cloudinary.com/dcrcl48si/image/upload/v1754079852/qxdrblyaycq81eodktby.jpg",
+            _name: "Vodka",
+            _status: "activo"
+        },
+
+        {
+            _description: "",
+            _image: "https://res.cloudinary.com/dcrcl48si/image/upload/v1754170949/decmna2ivxtyqnygzy6x.jpg",
+            _name: "Brandy",
+            _status: "activo"
+        }
+        ]
+
+
+        const productsTest = [
+            // {
+            //     _category: "brandy",
+            //     _description: "",
+            //     _image: "https://res.cloudinary.com/dcrcl48si/image/upload/v1753660900/xc35vdo26lwcnpz2ihwj.jpg",
+            //     _name: "Bacardy 151",
+            //     _price: 55.00,
+            //     _status: "activo",
+            //     _stock: "100"
+            // },
+
+            // {
+            //     _category: "gin",
+            //     _description: "",
+            //     _image: "https://res.cloudinary.com/dcrcl48si/image/upload/v1753661496/gvuq9i6fgggg4q83zrjk.jpg",
+            //     _name: "Jim Beam Kentucky Straight",
+            //     _price: "50.00",
+            //     _status: "activo",
+            //     _stock: "100"
+            // },
+
+            // {
+            //     _category: "rum",
+            //     _description: "",
+            //     _image: "https://res.cloudinary.com/dcrcl48si/image/upload/v1753661576/trpxnfro1dcnwvnsstvg.jpg",
+            //     _name: "Citadelle",
+            //     _price: "54.00",
+            //     _status: "activo",
+            //     _stock: "100"
+            // },
+
+            // {
+            //     _category: "rum",
+            //     _description: "",
+            //     _image: "https://res.cloudinary.com/dcrcl48si/image/upload/v1753661749/cegxdytpkaxqybscuxfq.jpg",
+            //     _name: "The Glenlivet",
+            //     _price: "59.00",
+            //     _status: "activo",
+            //     _stock: "100"
+            // },
+
+            // {
+            //     _category: "whiskey",
+            //     _description: "",
+            //     _image: "https://res.cloudinary.com/dcrcl48si/image/upload/v1753661997/qp6im6c11ys7v0vkogqp.jpg",
+            //     _name: "Black Label",
+            //     _price: "53.00",
+            //     _status: "activo",
+            //     _stock: "100"
+            // },
+
+            // {
+            //     _category: "tequila",
+            //     _description: "",
+            //     _image: "https://res.cloudinary.com/dcrcl48si/image/upload/v1753662063/fbgejgilqxuko9z2jx2m.jpg",
+            //     _name: "Macallan",
+            //     _price: "57.00",
+            //     _status: "activo",
+            //     _stock: "100"
+            // },
+
+            // {
+            //     _category: "vodka",
+            //     _description: "",
+            //     _image: "https://res.cloudinary.com/dcrcl48si/image/upload/v1753662092/w26yicukfhb930pkjenk.jpg",
+            //     _name: "Old Monk",
+            //     _price: "56.00",
+            //     _status: "activo",
+            //     _stock: "100"
+            // },
+
+            // {
+            //     _category: "whiskey",
+            //     _description: "",
+            //     _image: "https://res.cloudinary.com/dcrcl48si/image/upload/v1753662132/expesqgmj0r4addj30t9.jpg",
+            //     _name: "Jameson Irish Whiskey",
+            //     _price: "56.00",
+            //     _status: "activo",
+            //     _stock: "100"
+            // },
+
+            // {
+            //     _category: "whiskey",
+            //     _description: "",
+            //     _image: "https://res.cloudinary.com/dcrcl48si/image/upload/v1753662467/uwe5l5v1leqid0bygmjr.jpg",
+            //     _name: "Screwball",
+            //     _price: "58.00",
+            //     _status: "activo",
+            //     _stock: "100"
+            // },
+            //koko de ikuso
+            //gin
+            {
+                _category: "gin",
+                _description: "<p><br></p>",
+                _image: "https://res.cloudinary.com/dcrcl48si/image/upload/v1754662891/kbocfinb5c7r99q5jonr.jpg",
+                _name: "Hendrick's Flora Adora",
+                _price: 139.90,
+                _status: "activo",
+                _stock: "100",
+            },
+
+            {
+                _category
+                    :
+                    "gin",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754663300/wntjzclfclvznyjjvhac.jpg",
+                _name
+                    :
+                    "Bombay Bramble",
+                _price
+                    :
+                    113.90,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100",
+            },
+            {
+                _category
+                    :
+                    "gin",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754663570/aeusmevpefkfue03ubrr.jpg",
+                _name
+                    :
+                    "Brokers London Dry",
+                _price
+                    :
+                    107.90,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100"
+            },
+            {
+                _category
+                    :
+                    "gin",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754663865/kbnwgbxjad5qoxiv77cc.jpg",
+                _name
+                    :
+                    "Andean Gin Arandanos",
+                _price
+                    :
+                    81.90,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100"
+            },
+            {
+                _category
+                    :
+                    "gin",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754664105/arqmovczs1nuyymmgaci.jpg",
+                _name
+                    :
+                    "Hendrick's Neptunia",
+                _price
+                    :
+                    139.90,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100"
+            },
+            {
+                _category
+                    :
+                    "gin",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754664385/pdtm9minjqktvqkrl8uh.jpg",
+                _name
+                    :
+                    "Beefeater Blackberry",
+                _price
+                    :
+                    85.90,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100"
+            },
+            //whiskey
+            {
+                _category
+                    :
+                    "whiskey",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754664880/ptq8mi4cfcg5byclzeoe.jpg",
+                _name
+                    :
+                    "Buchanan´s 12yo",
+                _price
+                    : 99.90,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100"
+            },
+            {
+                _category
+                    :
+                    "whiskey",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754665155/r157ejiz0ihrfyayfn40.jpg",
+                _name
+                    :
+                    "Ballantines Finest",
+                _price
+                    :
+                    60.90,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100"
+            },
+            {
+                _category
+                    :
+                    "whiskey",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754665342/dafpjs7weo1cqwpfgaf0.jpg",
+                _name
+                    :
+                    "Ballantines 12 años",
+                _price
+                    :
+                    79.90,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100"
+            },
+
+            {
+                _category
+                    :
+                    "whiskey",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754665576/kmssoonctdib2h6p7frn.jpg",
+                _name
+                    :
+                    "Ballantines Finest Edicion Especial",
+                _price
+                    :
+                    39.90,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100"
+            },
+
+            //vodka
+            {
+                _category
+                    :
+                    "vodka",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754666072/vyvnf5pzxtz98ndefove.jpg",
+                _name
+                    :
+                    "Absolut Watermelon",
+                _price
+                    :
+                    56.90,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100"
+            },
+            {
+                _category
+                    :
+                    "vodka",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754666307/mpcukhqwolv9zw1asriz.jpg",
+                _name
+                    :
+                    "Belvedere Puro Smogory",
+                _price
+                    :
+                    99.00,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100"
+            },
+            {
+                _category
+                    :
+                    "vodka",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754666530/rm7asbkps4yvqx3x6x12.jpg",
+                _name
+                    :
+                    "Vap Vodka Smirnoff Tamarindo",
+                _price
+                    :
+                    49.00,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100"
+            },
+            {
+                _category
+                    :
+                    "vodka",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754666745/cljr1cjnyetwwqphqo17.jpg",
+                _name
+                    :
+                    "Absolut Warhol",
+                _price
+                    :
+                    51.90,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100"
+            },
+            {
+                _category
+                    :
+                    "vodka",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754666895/jinlz1zjfkrtx9yilgoj.jpg",
+                _name
+                    :
+                    "Absolut Pears",
+                _price
+                    :
+                    62.00,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100"
+            },
+            {
+                _category
+                    :
+                    "vodka",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754667190/fhrtwmy64o7igogzbvtg.jpg",
+                _name
+                    :
+                    "Belvedere",
+                _price
+                    :
+                    95.00,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100"
+            },
+            //tequila
+            {
+                _category
+                    :
+                    "tequila",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754667625/dqtv22iedtn4cz9rjl15.jpg",
+                _name
+                    :
+                    "Don Julio Blanco X",
+                _price
+                    :
+                    120.99,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100"
+            },
+            {
+                _category
+                    :
+                    "tequila",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754667770/hfxrhovavcy9e0dgavvm.jpg",
+                _name
+                    :
+                    "Jimador Blanco",
+                _price
+                    :
+                    80.00,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100"
+            },
+            {
+                _category
+                    :
+                    "tequila",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754667879/knlnk0rrl9fv0gselvup.jpg",
+                _name
+                    :
+                    "Jimador Reposado",
+                _price
+                    :
+                    80.00,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100"
+            },
+            {
+                _category
+                    :
+                    "tequila",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754668008/m0fplsxistsgro5wctea.jpg",
+                _name
+                    :
+                    "Ojo de Tigre Joven",
+                _price
+                    :
+                    92.00,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100"
+            },
+
+            //rom
+            {
+                _category
+                    :
+                    "rum",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754668687/h8t4011z6rdw1j6wbgki.jpg",
+                _name
+                    :
+                    "Ron Cartavio Black",
+                _price
+                    :
+                    37.00,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100"
+            },
+            {
+                _category
+                    :
+                    "rum",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754668855/o0dzyysggule89s5idwk.jpg",
+                _name
+                    :
+                    "Barcelo Añejo",
+                _price
+                    :
+                    39.90,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100"
+            },
+            {
+                _category
+                    :
+                    "rum",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754669047/dzgeeeizvdfootdojbfj.jpg",
+                _name
+                    :
+                    "Myers's Original Dark",
+                _price
+                    :
+                    40.00,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100"
+            },
+            {
+                _category
+                    :
+                    "rum",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754669190/yfvaml6mxw9qtx7mdezv.jpg",
+                _name
+                    :
+                    "Cartavio Selecto 5 años",
+                _price
+                    :
+                    29.90,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100"
+            },
+            //brandy
+            {
+                _category
+                    :
+                    "brandy",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754669926/rlsohpfw0uqsqxqkr53a.png",
+                _name
+                    :
+                    "DON SANTIAGO Quebranta",
+                _price
+                    :
+                    118.00,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100"
+            },
+            {
+                _category
+                    :
+                    "brandy",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754670115/kkjta0ogxu2tv5uydbzi.png",
+                _name
+                    :
+                    "BARDINET VSOP",
+                _price
+                    :
+                    64.90,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100"
+            },
+            {
+                _category
+                    :
+                    "brandy",
+                _description
+                    :
+                    "<p><br></p>",
+                _image
+                    :
+                    "https://res.cloudinary.com/dcrcl48si/image/upload/v1754674644/r8lyqr3msodg17tpziln.png",
+                _name
+                    :
+                    "BARDINET Cherry Brandy",
+                _price
+                    :
+                    74.90,
+                _status
+                    :
+                    "activo",
+                _stock
+                    :
+                    "100"
+            }
+        ]
+
+
+
+        let categories = JSON.parse(localStorage.getItem('categories')) || []
+        if (categories.length == 0) {
+            categoriesTest.forEach(category => categories.push(category));
+            localStorage.setItem('categories', JSON.stringify(categories));
+        }
+
+        let products = JSON.parse(localStorage.getItem('products')) || []
+        if (products.length == 0) {
+            productsTest.forEach(product => products.push(product));
+            localStorage.setItem('products', JSON.stringify(products));
+        }
+
+
+
+
+
         window.location.href = "pages/index.html";
     </script>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>

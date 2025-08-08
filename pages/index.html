@@ -519,8 +519,9 @@
 	</script>
 
 	<script>
-		const products = JSON.parse(localStorage.getItem('products')) || []
-		const categories = JSON.parse(localStorage.getItem('categories')) || []
+		let products = JSON.parse(localStorage.getItem('products')) || []
+		console.log(products)
+		let categories = JSON.parse(localStorage.getItem('categories')) || []
 		const divContainerCategories = document.getElementById('row-categories')
 		const divSlaiderCategories = document.getElementById('categories-slider')
 
